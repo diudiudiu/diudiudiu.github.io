@@ -30,7 +30,7 @@
 				</ul>
 				<ul id="icon">
 					<li class="github">
-						<a href="#" title="github"><i class="icon-github"></i></a>
+						<a href="https://github.com/diudiudiu" title="github"><i class="icon-github"></i></a>
 					</li>
 					<li class="qq">
 						<a href="#" title="QQ"><i class="icon-qq"></i></a></li>
@@ -51,7 +51,16 @@
 		</div>
 		<div class="right">
 			<div class="rightnav">
-				<input type="text"><i class="icon-search" title="搜索"></i>
+				
+				<a href="https://github.com/diudiudiu/diudiudiu.github.io"><div class="star"><i class="icon-github"></i>Star</div></a>
+				<a href="https://github.com/diudiudiu/diudiudiu.github.io/stargazers"><div class="starnum">1</div></a>
+				<span>
+					<input class="so" type="text" placeholder="例:CSS">
+				</span>
+				<span>
+					<i class="icon-search search" title="搜索"></i>
+				</span>
+				
 			</div>
 			<div class="rightbody">
 				<div class="write">
@@ -79,23 +88,23 @@
 								</code>
 							</p>
 						</li>
-						<li>
+						<li class="hide">
 							<h2> <span class="date"></span></h2>
 							<p class="list"></p>
 						</li>
-						<li>
+						<li class="hide">
 							<h2> <span class="date"></span></h2>
 							<p class="list"></p>
 						</li>
-						<li>
+						<li class="hide">
 							<h2> <span class="date"></span></h2>
 							<p class="list"></p>
 						</li>
-						<li>
+						<li class="hide">
 							<h2> <span class="date"></span></h2>
 							<p class="list"></p>
 						</li>
-						<li>
+						<li class="hide">
 							<h2> <span class="date"></span></h2>
 							<p class="list"></p>
 						</li>
@@ -103,9 +112,27 @@
 				</div>
 				<div class="photowall">
 					<h1>相册</h1>
-					<div class="wall">
+					<div class="">
 						<h2>相册1</h2>
+						<div id="wall1" class="wall">
+							<div class="out">
+								<div class="border">
+									<img src="images/photo/" alt="图片" />
+								</div>
+							</div>
+							<div class="out">
+								<div class="border">
+									<img src="images/photo/" alt="图片" />
+								</div>
+							</div>
+							<div class="out">
+								<div class="border">
+									<img src="images/photo/" alt="图片" />
+								</div>
+							</div>
+						</div>
 					</div>
+				</div>
 					<div class="wall">
 						<h2>相册2</h2>
 					</div>
@@ -114,14 +141,15 @@
 					<h1>留言板</h1>
 					<ul>
 						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
+						<li class="hide"></li>
+						<li class="hide"></li>
+						<li class="hide"></li>
 					</ul>
 					<div>
 						<div class="information">
-							<input type="text" value="昵称" required>
-							<input type="emali" name="myemail" required>
+							<input type="text"  placeholder="昵称"  required>
+							<input type="E-mail" placeholder="邮箱" required>
+							<input type="text" placeholder="https://github.com/" required>
 						</div>
 						<div>
 							<textarea name="texta" rows="7" cols="30" wrap="" id="text"></textarea>

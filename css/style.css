@@ -1,3 +1,6 @@
+body{
+	overflow-x:hidden;
+}
 ul li{
 	list-style: none;
 }
@@ -5,7 +8,9 @@ a{
 	text-decoration: none;
 	color: #000;
 }
-
+.hide{
+	display: none;
+}
 /* body */
 #box{
 	margin: 0 auto;
@@ -108,11 +113,63 @@ a{
 	background: #FD7070;
 }
 #box .right{
-	background: #F2D8F4;
+	background: #EEECEC;/* #F2D8F4*/
 	float: left;
 	overflow: hidden;
 	margin-left: 300px;
 	width: 1620px;
+	height: 100%;
+}
+.right .rightnav span{
+	float: left;
+}
+.search{
+	height: 22px;
+	line-height: 22px;
+	font-size: 22px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+.so{
+	height: 23px;
+	border-radius: 3px;
+	margin-left: 200px;
+}
+.right .star{
+	float: left;
+	height: 28px;
+	line-height: 28px;
+	width: 78px;
+	text-align: center;
+	border:0.5px solid #D1D2D3;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+	cursor: pointer;
+	margin-left: 430px;
+	background: #fff;
+	opacity:0.7;
+	filter: opacity(70);
+}
+.star:hover{
+	opacity:1;
+	filter: opacity(100);
+}
+.right .starnum{
+	float: left;
+	height: 28px;
+	line-height: 28px;
+	width: 28px;
+	text-align: center;
+	border:0.5px solid #D1D2D3;
+	border-left: none;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
+	cursor: pointer;
+	background: #fff;
+}
+
+.starnum:hover{
+	color: #5139FF;
 }
 .right h1{
 	height: 40px;
@@ -123,6 +180,7 @@ a{
 .rightnav{
 	margin: 20px auto;
 	width: 1400px;
+	overflow: hidden;
 }
 .rightbody,.board{
 	width: 1400px;
@@ -155,4 +213,48 @@ a{
 code{
 	display: block;
 	padding: 20px 0 20px 30px;
+}
+.wall{
+	width: 1400px;
+	margin: 10px auto;
+	padding: 20px;
+	background: #fff;
+	-webkit-column-width: 547px;
+	-moz-column-width: 547px;
+	-o-column-width: 547px;
+	-ms-column-width: 547px;
+}
+.wall .out{
+	height:100%;
+	overflow: auto;
+	padding:0px 0 10px 15px;
+	float:left;
+}
+.wall .border{
+	border:1px solid #CCC;
+	border-radius:5px;
+	box-shadow:0 0 5px #ccc;
+	padding: 10px;
+	width:500px
+}
+.wall .border img{
+	display: block;
+	width:500px;
+	height:auto;
+}
+.information{
+	margin-bottom: 20px;
+}
+.information input[type="text"]:first-child{
+	width: 200px;
+}
+.information input[type="E-mail"]{
+	width: 400px;
+	margin: 0 100px;
+}
+.information input[type="text"]:last-child{
+	width: 400px;
+}
+textarea{
+	width: 1440px;
 }
