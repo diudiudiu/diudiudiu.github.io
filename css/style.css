@@ -18,7 +18,6 @@ a{
 #box .left{
 	float: left;
 	width: 300px;
-	overflow: hidden;
 	position: fixed;
 	height: 100%
 	left: 0;
@@ -94,24 +93,84 @@ a{
 .left #icon li a{
 	color: #fff;
 }
+
+
+/* icon background */
 .github{
 	background: #000;
 }
 .qq{
 	background: #1DC5FC;
+	position: relative;
 }
 .WeChat{
 	background: #18D814;
+	position: relative;
 }
 .mail{
 	background: #005A87;
 }
 .weibo{
-	background: #F7CE3D
+	background: #F7CE3D;
 }
 .resume{
 	background: #FD7070;
 }
+/* QQ VX 二维码   */
+.QQ {
+	position: absolute;
+	height: 0px;
+	width: 200px;
+	left: -75px;
+	top: 36px;
+	overflow: hidden;
+}
+.VX {
+	position: absolute;
+	height: 0px;
+	width: 220px;
+	left: -90px;
+	top: 36px;
+	display: none;
+	overflow: hidden;
+}
+.QQ .triangel{
+	width: 0;
+    height: 0;
+    border: 40px solid red;
+    border-bottom-color: #1DC5FC;
+    border-top: none;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    margin-left: 50px;
+}
+.QQ .imgbg{
+	height: 200px;
+	width: 200px;
+	background: #1DC5FC;
+	margin-left: -1px;
+}
+.VX .triangel{
+	width: 0;
+    height: 0;
+    border: 40px solid red;
+    border-bottom-color: #18D814;
+    border-top: none;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    margin-left: 65px;
+}
+.VX .imgbg{
+	height: 200px;
+	width: 200px;
+	background: #18D814;
+	margin:0 auto;
+
+}
+.imgbg img{
+	margin: 10px;
+}
+
 #box .right{
 	background: #EEECEC;/* #F2D8F4*/
 	float: left;
