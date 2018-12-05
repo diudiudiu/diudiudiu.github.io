@@ -20,9 +20,9 @@
 				<p class="name">diudiudiu <br><i class="icon-location2" title="沈阳"></i>沈阳工业大学</p>
 				<p class="introduce">introduce!!!</p>
 				<ul class="nav" id="nav1">
-					<li><a href="#">日志</a>/</li>
-					<li><a href="#">相册</a>/</li>
-					<li><a href="#">留言板</a></li>
+					<li><a href="#write">日志</a>/</li>
+					<li><a href="#photowall">相册</a>/</li>
+					<li><a href="#board">留言板</a></li>
 				</ul>
 				<ul class="nav" id="nav2">
 					<li><a href="#">友情链接</a>/</li>
@@ -43,7 +43,7 @@
 						</div>
 					</li>
 						
-					<li class="WeChat">
+					<li class="WeChat" id="WeChat">
 						<a href="#" title="WeChat"><i class="icon-wechat"></i></a>
 						<div class="VX" id="VX">
 							<div class="triangel"></div>
@@ -54,7 +54,7 @@
 						
 					</li>
 					<li class="mail">
-						<a href="#" title="E-mail"><i class="icon-envelop"></i></a>
+						<a href="mailto:171738749@qq.com" title="E-mail"><i class="icon-envelop"></i></a>
 					</li>
 					<li class="weibo">
 						<a href="#" title="weibo"><i class="icon-sina-weibo"></i></a>
@@ -71,15 +71,14 @@
 				<a href="https://github.com/diudiudiu/diudiudiu.github.io"><div class="star"><i class="icon-github"></i>Star</div></a>
 				<a href="https://github.com/diudiudiu/diudiudiu.github.io/stargazers"><div class="starnum">1</div></a>
 				<span>
-					<input class="so" type="text" placeholder="例:CSS">
+					<input class="so" id="so" type="text" placeholder="例:CSS">
 				</span>
 				<span>
-					<i class="icon-search search" title="搜索"></i>
+					<i class="icon-search search" id="search" title="搜索"></i>
 				</span>
-				
 			</div>
 			<div class="rightbody">
-				<div class="write">
+				<div class="write" id="write">
 					<h1>日志</h1>
 					<ul>
 						<li>
@@ -126,49 +125,76 @@
 						</li>
 					</ul>
 				</div>
-				<div class="photowall">
+				<div class="photowall" id="photowall">
 					<h1>相册</h1>
 					<div class="">
 						<h2>相册1</h2>
 						<div id="wall1" class="wall">
 							<div class="out">
 								<div class="border">
-									<img src="images/photo/" alt="图片" />
+									<img src="images/photo/web1.jpg" alt="图片" />
 								</div>
 							</div>
 							<div class="out">
 								<div class="border">
-									<img src="images/photo/" alt="图片" />
+									<img src="images/photo/style21.png" alt="图片" />
 								</div>
 							</div>
 							<div class="out">
 								<div class="border">
-									<img src="images/photo/" alt="图片" />
+									<img src="images/photo/style11.png" alt="图片" />
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-					<div class="wall">
+					<div class="wall hide">
 						<h2>相册2</h2>
 					</div>
 				</div>
-				<div class="board">
+				<div class="board" id="board">
 					<h1>留言板</h1>
-					<ul>
-						<li></li>
-						<li class="hide"></li>
+					<ul id="boardul">
+						<li>
+							<div class="info">
+								<i>diudiudiu</i>
+								<a href="#">171738749@qq.com</a>
+								<a href="https://github.com/diudiudiu">
+									https://github.com/diudiudiu
+								</a>
+								<span class="floor">1L</span>
+							</div>
+							<hr>
+							<div class="message" id="message">
+								<p>欢迎留言给我，留言板块开发中！！</p>
+								<span><i></i>2018.12.4 15:32</span>
+							</div>
+						</li>
+						<li class="hide">
+							<div class="info">
+								<i></i>
+								<a href="#"></a>
+								<a href="#"></a>
+								<span class="floor"></span>
+							</div>
+							<hr>
+							<div class="message">
+								<p>欢迎留言给我，留言板块开发中！！</p>
+								<span><i></i>2018.12.4 15:32</span>
+							</div>
+						</li>
 						<li class="hide"></li>
 						<li class="hide"></li>
 					</ul>
 					<div>
-						<div class="information">
+						<div class="information" id="information">
 							<input type="text"  placeholder="昵称"  required>
 							<input type="E-mail" placeholder="邮箱" required>
 							<input type="text" placeholder="https://github.com/" required>
 						</div>
 						<div>
 							<textarea name="texta" rows="7" cols="30" wrap="" id="text"></textarea>
+							<span id="send">发送</span>
 						</div>
 					</div>
 				</div>
