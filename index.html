@@ -84,12 +84,35 @@
 						<li>
 							<h2>CSS-reset<span class="date"></span></h2>
 							<p class="list">
-								各个浏览器都有默认的样式，为了更好的布局，需要清除CSS的默认样式。称之为CSS-reset。<br>
+								在 HTML标签在浏览器里有默认的样式，不同浏览器的默认样式之间也会有差别。为了更好的布局和开发，需要清除HTML标签的的默认样式。这就是CSS reset。个人的理解就是自己用CSS来重新定义各个HTML标签。<br>
 								1.最基础的reset： 
 								<code>
 									* { padding: 0; margin: 0; border: 0; }
 								</code>
-								2.自己使用的一款较为全面的reset
+								2.Yahoo！的reset代码。（个人用到最多的！！）
+								<code>
+									body, div, dl, dt, dd, ul, ol, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {padding:0; margin:0;} 	<br>
+									fieldset, img{border:0;} <br>
+									table {border-collapse:collapse; border-spacing:0;} <br>
+									ol, ul {list-style:none;} <br>
+									address, caption, cite, code, dfn, em, strong, th,var { font-weight:normal; font-style:normal;} <br>
+									caption, th{text-align:left;} <br>
+									h1, h2, h3, h4, h5, h6{font-weight:normal; font-size:100%;} <br>
+									q:before, q:after {content: '';} <br>
+									abbr,acronym{border:0;}
+								</code>
+								各个网站论坛有着各种各样的CSS reset，当然CSS reset也可以按照个人习惯去设置。此篇文章只是用于提醒HTML标签有默认样式！！！
+							</p>
+						</li>
+						<li class="hide">
+							<h2>盒子模型<span class="date"></span></h2>
+							<p class="list">
+								CSS最最最基础的就是盒子模型了，想要成为一名优秀的前端工程师！这个怎么能不会呢？<br>
+								首先拿一个块级元素举例。一个div
+								<code>
+									* { padding: 0; margin: 0; border: 0; }
+								</code>
+								2.Yahoo！的reset代码。（个人用到最多的！！）
 								<code>
 									body, div, dl, dt, dd, ul, ol, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {padding:0; margin:0;} 	<br>
 									fieldset, img{border:0;} <br>
@@ -102,10 +125,6 @@
 									abbr,acronym{border:0;}
 								</code>
 							</p>
-						</li>
-						<li class="hide">
-							<h2> <span class="date"></span></h2>
-							<p class="list"></p>
 						</li>
 						<li class="hide">
 							<h2> <span class="date"></span></h2>
@@ -196,10 +215,11 @@
 						</div>
 					</div>
 				</div>
+				<div class="footer">
+					©2018 diudiudiu 
+				</div>
 			</div>
-			<div class="footer">
-				©2018 diudiudiu 
-			</div>
+			
 		</div>
 	</div>
 </body>
