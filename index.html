@@ -160,6 +160,40 @@
 									等价于context.moveTo(x,y);
 							</p>
 						</li>
+						<li class="hide">
+							<h2>JS事件<span class="date"></span></h2>
+							<p class="list">
+								
+								<code>
+									<pre>
+									<body>
+										<canvas id="canvas" width="1024" height="768">
+											当前浏览器不支持canvas，请更换浏览器。
+										</canvas>
+									</body>
+									</pre>
+								</code>
+								js
+								var canvas=document.getElementById('canvas');
+								var context=canvas.getContext('2d');//绘图上下文环境。
+								这里有个坑Canvas是基于!!!状态!!!来绘制。
+								函数context.moveTo(x0,y0);表示画笔的起始点(x0,y0);
+								context.lineTo(x1,y2);表示从上个点画到(x1,y1)的直线。
+								context.lineWidth=number；表示线条轮廓的宽度。
+								context.stroke()；表示状态描述结束开始绘画。
+								context.strokeStyle="color";表示设置线条的颜色
+								context.beginPath();表示声明新的状态描述。
+								context.closePath();表示将首尾的点进行连接。
+								context.fillStyle='color';表示设置填充颜色。
+								context.fill()；进行填充。
+								context.rect(x,y,width,height);绘制矩形
+								注意！如果先进行绘画再进行颜色填充那么 假如线条宽度为10，则线条最终的宽度会变为5;原因在于线条宽度的10分为内部的5和外部的5，先绘制再填充则把内部的5给覆盖了。
+								<code>
+									context.beiginPath();
+									context.lineto(x,y);
+									等价于context.moveTo(x,y);
+							</p>
+						</li>
 					</ul>
 				</div>
 				<div class="photowall" id="photowall">
