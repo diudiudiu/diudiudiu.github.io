@@ -267,6 +267,13 @@ a{
 	line-height: 28px;
 	font-size: 18px;
 }
+.write ul li .list>em{
+	font-weight: bold;
+}
+.write ul li .list>span{
+	display: block;
+	text-indent: 3em;
+}
 code{
 	display: block;
 	padding: 20px 0 20px 30px;
