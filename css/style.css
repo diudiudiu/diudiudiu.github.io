@@ -319,6 +319,11 @@ code{
 .board ul li .info{
 	margin-left: 60px;
 	position: relative;
+	padding-top: 10px;
+}
+.board ul li .info i{
+	font-style:normal;
+	font-weight: bold;
 }
 .board ul li .info a{
 	margin-left: 90px;
@@ -331,7 +336,7 @@ code{
 .board ul li .info span{
 	position: absolute;
 	right: 50px;
-	color: #FBB8B8;
+	color: #F32929; 
 	font-weight: bold;
 }
 .board ul li .message{
@@ -357,6 +362,13 @@ code{
 }
 .information input[type="text"]:last-child{
 	width: 400px;
+}
+.footer{
+	padding-bottom: 20px;
+}
+.footer a{
+	text-decoration: underline;
+	color: #5C42F8;
 }
 textarea{
 	width: 1440px;
