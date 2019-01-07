@@ -120,17 +120,25 @@ a{
 	position: absolute;
 	height: 0px;
 	width: 200px;
-	left: -75px;
+	left: -80px;
 	top: 36px;
 	overflow: hidden;
+	transition: height ease-out 0.5s;
+}
+.qq:hover .QQ{
+	height: 240px;
 }
 .VX {
 	position: absolute;
 	height: 0px;
 	width: 220px;
-	left: -90px;
+	left: -95px;
 	top: 36px;
 	overflow: hidden;
+	transition: height ease-out 0.5s;
+}
+.WeChat:hover .VX{
+	height: 240px;
 }
 .QQ .triangel{
 	width: 0;
@@ -140,7 +148,7 @@ a{
     border-top: none;
     border-left-color: transparent;
     border-right-color: transparent;
-    margin-left: 50px;
+    margin-left: 55px;
 }
 .QQ .imgbg{
 	height: 200px;
@@ -156,7 +164,7 @@ a{
     border-top: none;
     border-left-color: transparent;
     border-right-color: transparent;
-    margin-left: 65px;
+    margin-left: 70px;
 }
 .VX .imgbg{
 	height: 200px;

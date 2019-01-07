@@ -52,57 +52,57 @@ window.onload=function(){
 
 
 
-	/*二维码*/
-	var qq=document.getElementById('qq');
-	var QQ=document.getElementById('QQ');
-	var WeChat=document.getElementById('WeChat');
-	var VX=document.getElementById('VX');
-	var timer=null;
-	var up=false;
-	var down=false;
-	qq.onmouseover=function(){
-		if (!up&&VX.offsetHeight==0) {
-			ChangeHeight(QQ,240,5,20);
-		}
-	}
-	qq.onmouseout=function(){
-		if (!down&&VX.offsetHeight==0) {
-			ChangeHeight(QQ,0,-5,10);
-		}
-	}
-	WeChat.onmouseover=function(){
-		if (!up&&QQ.offsetHeight==0) {
-			ChangeHeight(VX,240,5,20);
-		}
-	}
-	WeChat.onmouseout=function(){
-		if (!down&&QQ.offsetHeight==0) {
-			ChangeHeight(VX,0,-5,10);
-		}
-	}
-	function ChangeHeight(that,height,speed,time){
-		var LHeight=that.offsetHeight;
-		clearInterval(timer);
-		up=false;
-		down=false;
-		timer=setInterval(function(){
-			LHeight+=speed;
-			if(speed>0){
-				up=true;
-				if(LHeight>=height){
-					LHeight=height;
-					clearInterval(timer);
-					up=false;
-				}
-			}else if(speed<0){
-				down=true;
-				if(LHeight<=height){
-					LHeight=height;
-					clearInterval(timer);
-					down=false;
-				}
-			}
-			that.style.height=LHeight+'px';
-		},time);
-	}
+	// /*二维码*/
+	// var qq=document.getElementById('qq');
+	// var QQ=document.getElementById('QQ');
+	// var WeChat=document.getElementById('WeChat');
+	// var VX=document.getElementById('VX');
+	// var timer=null;
+	// var up=false;
+	// var down=false;
+	// qq.onmouseover=function(){
+	// 	if (!up&&VX.offsetHeight==0) {
+	// 		ChangeHeight(QQ,240,5,20);
+	// 	}
+	// }
+	// qq.onmouseout=function(){
+	// 	if (!down&&VX.offsetHeight==0) {
+	// 		ChangeHeight(QQ,0,-5,10);
+	// 	}
+	// }
+	// WeChat.onmouseover=function(){
+	// 	if (!up&&QQ.offsetHeight==0) {
+	// 		ChangeHeight(VX,240,5,20);
+	// 	}
+	// }
+	// WeChat.onmouseout=function(){
+	// 	if (!down&&QQ.offsetHeight==0) {
+	// 		ChangeHeight(VX,0,-5,10);
+	// 	}
+	// }
+	// function ChangeHeight(that,height,speed,time){
+	// 	var LHeight=that.offsetHeight;
+	// 	clearInterval(timer);
+	// 	up=false;
+	// 	down=false;
+	// 	timer=setInterval(function(){
+	// 		LHeight+=speed;
+	// 		if(speed>0){
+	// 			up=true;
+	// 			if(LHeight>=height){
+	// 				LHeight=height;
+	// 				clearInterval(timer);
+	// 				up=false;
+	// 			}
+	// 		}else if(speed<0){
+	// 			down=true;
+	// 			if(LHeight<=height){
+	// 				LHeight=height;
+	// 				clearInterval(timer);
+	// 				down=false;
+	// 			}
+	// 		}
+	// 		that.style.height=LHeight+'px';
+	// 	},time);
+	// }
 }
