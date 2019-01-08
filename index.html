@@ -10,7 +10,10 @@
 </head>
 <body>
 	<div id="box">
-		<div class="left">
+		<div class="left" id="left">
+			<div class="goleft" id="goleft">
+				<img src="images/left.png" alt="" >
+			</div>
 			<div class="first">
 				<div class="myphoto">
 					<img src="images/myphoto.JPG"alt="" >
@@ -65,7 +68,7 @@
 				</ul>
 			</div>
 		</div>
-		<div class="right">
+		<div class="right" id="right">
 			<div class="rightnav">
 				
 				<a href="https://github.com/diudiudiu/diudiudiu.github.io"><div class="star"><i class="icon-github"></i>Star</div></a>
@@ -193,6 +196,24 @@
 								<span>context.beiginPath();</span>
 								<span>context.lineto(x,y);</span>
 								<span>等价于context.moveTo(x,y);</span>
+							</p>
+						</li>
+						<li class="">
+							<h2>JS各种宽高的集合<span class="date"></span></h2>
+							<p class="list">								<span>网页可见区域宽： document.body.clientWidth</span>
+								<span>网页可见区域高： document.body.clientHeight</span>
+								<span>网页可见区域宽： document.body.offsetWidth (包括边线的宽)</span>
+								<span>网页可见区域高： document.body.offsetHeight (包括边线的高)</span>
+								<span>网页正文全文宽： document.body.scrollWidth</span>
+								<span>网页正文全文高： document.body.scrollHeight</span>
+								<span>网页被卷去的高： document.body.scrollTop</span>
+								<span>网页被卷去的左： document.body.scrollLeft</span>
+								<span>网页正文部分上： window.screenTop</span>
+								<span>网页正文部分左： window.screenLeft</span>
+								<span>屏幕分辨率的高： window.screen.height</span>
+								<span>屏幕分辨率的宽： window.screen.width</span>
+								<span>屏幕可用工作区高度： window.screen.availHeight</span>
+								<span>屏幕可用工作区宽度： window.screen.availWidth</span>
 							</p>
 						</li>
 					</ul>

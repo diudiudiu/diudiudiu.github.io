@@ -49,7 +49,39 @@ window.onload=function(){
 	    oPin.appendChild(omessage);
 	}
 	
+	/* 左侧最小化 */
 
+	var timer;
+	var leftdiv=document.getElementById("left");
+	var goleft=document.getElementById("goleft");
+	var rightdiv=document.getElementById("right");
+	// goleft.onclick=function(){
+		// leftdiv.style.position='absolute';		
+		// // rightdiv.style.position='absolute';		
+		// timer=setInterval(function(){	
+		// 	if (leftdiv.offsetLeft<=-300) {
+		// 		leftdiv.style.left=-300+'px';
+		// 		rightdiv.style.marginLeft=0+'px';
+		// 		clearInterval(timer);
+		// 	}else{
+		// 		leftdiv.style.left=(leftdiv.offsetLeft-3)+'px';
+		// 		rightdiv.style.marginLeft=(rightdiv.style.marginLeft-3)+'px';
+		// 	}
+		// },10)
+	// }
+	var box=document.getElementById("box");
+	alert(box.style.marginLeft==='0px');	
+	goleft.onclick=function(){
+		// rightdiv.style.position='absolute';		
+		timer=setInterval(function(){	
+			if (box.style.marginLeft<=-300) {
+				box.style.marginLeft=-300+'px';
+				clearInterval(timer);
+			}else{
+				box.style.marginLeft=(box.style.marginLeft-3)+'px';
+			}
+		},10)
+	}
 
 
 	// /*二维码*/

@@ -19,9 +19,34 @@ a{
 	float: left;
 	width: 300px;
 	position: fixed;
-	height: 100%
+	height: 100%;
 	left: 0;
 	top: 0;
+}
+.left .goleft{
+	position: absolute;
+	right: -60px;
+	width: 60px;
+	height: 70px;
+	font-size: 24px;
+	line-height: 70px;
+	top: 50%;
+	margin-top: -35px;
+	background: #fff;
+	cursor: pointer;
+	text-align: center;
+	z-index: 111100;
+}
+.left .goleft img{
+	width: 50px;
+	height: 60px;
+	margin-top: 5px;
+	transition: all ease-out 0.2s;;
+}
+.left .goleft img:hover{
+	width: 60px;
+	height: 70px;
+	margin-top: 0px;
 }
 .left .first{
 	background: url(../images/bg.jpg);
@@ -180,10 +205,13 @@ a{
 #box .right{
 	background: #EEECEC;/* #F2D8F4*/
 	float: left;
-	overflow: hidden;
+/*	overflow: hidden;*/
 	margin-left: 300px;
 	width: 1620px;
-	height: 100%;
+	left: 0;
+/*	position: absolute;
+	left: 300px;*/
+	z-index: 1;
 }
 .right .rightnav span{
 	float: left;
