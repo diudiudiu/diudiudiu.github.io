@@ -12,8 +12,35 @@ a{
 	display: none;
 }
 /* body */
+.loading{
+	height:100%;
+	width: 100%;
+	z-index: 2000;
+	background: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.loading .pic{
+	width:130px;
+	height: 130px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -65px;
+	margin-top: -80px;
+	text-align: center;
+}
+.pic img{
+	display: block;
+	margin: 0 auto;
+}
+.pic span{
+	font-size: 20px;
+}
 #box{
 	margin: 0 auto;
+	overflow: hidden;
 }
 #box .left{
 	float: left;
@@ -35,7 +62,7 @@ a{
 	background: #fff;
 	cursor: pointer;
 	text-align: center;
-	z-index: 111100;
+	z-index: 1100;
 }
 .left .goleft img{
 	width: 50px;

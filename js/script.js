@@ -1,4 +1,12 @@
 window.onload=function(){
+	var loading=document.getElementById('loading');
+	setTimeout(function(){
+		if (document.readyState=="complete") {
+			loading.style.display='none';
+		}
+	},500);
+	
+	
 	/*搜索*/
 	var search=document.getElementById('search');
 	var so=document.getElementById('so');
@@ -70,7 +78,7 @@ window.onload=function(){
 		// },10)
 	// }
 	var box=document.getElementById("box");
-	alert(box.style.marginLeft==='0px');	
+	// alert(box.style.marginLeft==='0px');		
 	goleft.onclick=function(){
 		// rightdiv.style.position='absolute';		
 		timer=setInterval(function(){	
