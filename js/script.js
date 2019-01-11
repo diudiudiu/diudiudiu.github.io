@@ -90,6 +90,26 @@ window.onload=function(){
 			}
 		},10)
 	}
+	var Linux=document.getElementById("Linux");
+	Linux.innerHTML=ReplaceSeperator(Linux.innerHTML);
+	/*文章自动换行*/
+	function ReplaceSeperator(mobiles) {
+	    var i;
+	    var result = "<span>";
+	    var c;
+	    for (i = 0; i < mobiles.length; i++) {
+	        c = mobiles.substr(i, 1);
+	        if (c == "\n"||c == "\r"){
+	            result = result + "</span> <span>";
+	        }
+	        else{
+	        	result = result + c;
+	        }
+
+	    }
+	    return result.substring(0,result.length-6);;
+	}
+
 
 
 	// /*二维码*/

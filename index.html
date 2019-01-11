@@ -212,7 +212,8 @@
 						</li>
 						<li class="">
 							<h2>JS各种宽高的集合<span class="date"></span></h2>
-							<p class="list">								<span>网页可见区域宽： document.body.clientWidth</span>
+							<p class="list">								
+								<span>网页可见区域宽： document.body.clientWidth</span>
 								<span>网页可见区域高： document.body.clientHeight</span>
 								<span>网页可见区域宽： document.body.offsetWidth (包括边线的宽)</span>
 								<span>网页可见区域高： document.body.offsetHeight (包括边线的高)</span>
@@ -226,6 +227,229 @@
 								<span>屏幕分辨率的宽： window.screen.width</span>
 								<span>屏幕可用工作区高度： window.screen.availHeight</span>
 								<span>屏幕可用工作区宽度： window.screen.availWidth</span>
+							</p>
+						</li>
+						<p id="a">
+														
+								Linux
+								切换用户：su 用户名（不获得环境变量）
+								         su -用户名 （获所有）      
+								打开文件：./文件名，按tab直接出现
+								关机重启：sync
+								         shutdown -r（h） 时间
+								reboot重启，halt关机（now是立即）
+
+								查看当前目录：ls（查看详细信息：ls -l或ll）
+						</p>
+						<li class="">
+							<h2>Linux<span class="date"></span></h2>
+							<p class="list" id="Linux">					
+								Linux
+								切换用户：su 用户名（不获得环境变量）
+								         su -用户名 （获所有）      
+								打开文件：./文件名，按tab直接出现
+								关机重启：sync
+								         shutdown -r（h） 时间
+								reboot重启，halt关机（now是立即）
+
+								查看当前目录：ls（查看详细信息：ls -l或ll）
+								
+							    ll查看详细信息：0位表示类型（d表示目录、-表示文件、l表示链接文档...）
+							                   1-3表示所有者拥有的权限
+							                   4-6表示同组用户拥有的权限
+							                   7-9其它拥有该权限的用户
+								r 可读、w可写(不可删，得对文件所属文件夹有权限)、x可执行
+								链接数指硬链接，查看文件说的是个数，查看文件夹指子文件夹个数(默认是2，一个本身，一个上级。)
+								查看ip地址：ifconfig
+								切换目录：cd   cd -回上一次目录 cd  ..回上一级
+								查看当前所在目录：pwd
+								家目录（一开始的目录）的特殊符号：～
+									root在/root
+									一般用户在/home
+								创建文件：touch
+
+								编辑文件vi/vim：vi三种模式
+								  1.一般模式  a，I，o进入编辑模式，输入:进入末行模式
+								     yy复制，y数字y
+								     p粘贴
+								     u撤销
+								     dd删除行   d数字d
+								  2.编辑模式  Esc回到一般模式
+								  3.末行模式  w保存，q退出，q!不保存退出。Esc回到一般模式。/查找单词，%s/单词/替换单词/g（/g表示全文）。
+								  set nu显示行号，set nonu不显示。
+								  vim是vi加强版，具有颜色表示
+
+								查看文件：cat 文件名
+								                   cat -n 列出行号
+								                   cat /etc/passwd（查看创建了哪些用户）
+
+								主机名：hostname（后加新名字改名，超级用户，只有重启前好用）
+								  在etc/sysconfig/network里改重启后好用
+								防火墙：
+								              service iptables status
+								              service iptables stop
+								              service iptables start
+								  查看开机是否自动启动：chkconfig iptables - -list
+								  关闭（开启）开机时自动启动：chkconfig iptables off（on）
+								获取帮助：man 命令或配置文件
+								                （manual）
+								                    help 命令（一部分）
+								是否连接上其它主机：
+								                  ping ip地址
+
+								停止进程 ctrl+c
+								清屏 ctrl+l
+								退出 ctrl+q
+								切换 ctrl+alt
+
+								创建文件夹：mkdir 文件夹名
+								 多层：mkdir -p 
+								删除文件夹：rmdir 文件夹名（空的）
+								                        rm -r 文件夹名
+								删除文件：rm 文件名
+								复制文件：cp 文件名 复制路径（文件名可用*代表所有前缀）
+								                    cp-r 文件夹名 复制路径
+								重命名与移动：mv 旧 新
+								                           mv 文件名 路径
+
+								倒看文件：tac 文件名
+								一页页显示：more 文件名
+								                      空格下一页
+								                      enter下一行
+								                      q退出
+								                      =当前行行号
+								                      :f文件名和当前行号
+								显示：less 文件名
+								          （同more 可用pageup）
+								查看文件几行：head -n 行数 文件名
+								                            tail -n 行数 文件名
+								                            tail -f 文件名（实时跟踪更新）
+
+								重定向： ls ＞文件名
+								                ls-l ＞文件名（覆盖写）
+								                ls-al ＞＞文件名（加到末尾）
+
+								echo：echo 显示内容＞＞文件名
+
+								软链接：ln -s 目标 创建快捷方式名
+								                cd -P 软链接 （进入真的地址）
+								硬链接：ln 目标 链接名
+								                两个文件名虽不同但指向同一个文件
+
+								查看代码历史：history
+
+								显示时间：date
+								                 格式：date ＂+%Y/%m..."
+								显示非当前时间：date -d ＇...＇
+								设置系统时间：date -s ＂时间＂
+
+								查看日历：cal 
+								                    cal-3 （前一个月，当前月，下一个月）
+								                   cal 某年（显示整年日历）
+
+								增加用户：useradd 用户名（root模式）
+								                    groups 查看当前用户所在组名
+								                   id 用户名（查看用户名是否存在）
+								                   passwd 用户名（设置用户密码，输入无提醒）
+								                  userdel 用户名（删除用户但保存用户主目录）
+								                  userdel -r 用户名（全删）
+
+								查看用户信息：whoami （显示自身当前操作用户名）
+								                           who am i（显示一开始登录用户）
+								                         who（当前都有谁登录了）
+
+								Linux每个用户都有一个归属group
+								用户名 密码(隐藏) uid gid 家目录 shell版本
+
+								查看组：cat etc/group
+								修改用户：usermod -g 用户组 用户名
+								                   groupadd 组名（新增组）
+								                   groupdel 组名（删除组）
+								                   groupmod -n 新 旧（改组名）
+
+								修改权限：chmod {ugoa}{+-=}{rwx}文件或夹（u用户，g组，o其它、a所有）
+								                    chmod 数字三位对应三种用户可叠加(r 4、w 2、x 1) ..
+								                  -R 应用到文件夹里的
+
+								改完etc/sudoers后
+								用户使用root权限：sudo 命令
+
+								改变所有者：chown 用户 文件或名
+								                        -R 子目录也改
+								改变所属组：chgrp
+
+								查看分区：fdisk -l
+								查看硬盘：df 参数
+								                    -g 单位
+
+								查找文件或目录：find 搜索范围 匹配条件
+								                                find .. -name ..(名字)
+								                                ... -user ... (用户名)
+								                                ...{+ -  }n.. (大小)
+								                               (不认识*号，可以加'')
+								过滤查找：grep 参数 查找文件 源文件
+								                    | 将前一个命令结果输出传递到后面的命令处理
+								                  -n 显示匹配行及行号
+								文件搜索命令：which 命令
+								                           只能查命令，比find快
+
+								查看所有进程：ps -aux
+								查看系统健康状态：top 选项
+								                                    -d 秒数(几秒刷新，默认3s)
+								                                     -i 不显示闲置僵死进程
+								                                   -p 监控指定进程
+								进程树：pstree 选项
+								终止进程：kill -9 pid(进程号)
+								                    kill
+								显示网络统计信息：netstat -anp
+								                                   -an 一定顺序
+								                                   -p 哪个进程在调用
+								                                   -nltp tcp协议进程端口号
+								前后台切换：fg 数字(相应的前台)  后切前
+								                        ctrl+z                          前切后
+
+								gz压缩：gzip 文件(压缩成.gz)
+								            gunzip 文件.gz (解压)
+								            只压缩文件不压缩文件夹，不保留原来文件
+								zip压缩：zip (-r 压缩文件夹)  X.zip 压缩内容
+								                 可保留原文件
+								                 unzip 文件.zip (-d 指定地址)(可解压到指定地址)
+								tar打包：tar 参数 X.tar.gz 打包内容(打包目录)
+								                -c 产生.tar打包文件
+								                -v 显示详细信息
+								                -f 指定压缩后名
+								                -z 打包同时压缩
+								                -x 解包
+								                -zxvf(后加-C 地址)，zcvf
+
+								service后台服务管理：同防火墙iptables改为network
+								定时任务：crontab 选项
+								                    -e 编辑定时任务
+								                    -l 查询crontab任务
+								                    -r 删除当前用户所有crontab任务
+								                  ***** 执行的任务(/bin/命令)
+
+								rpm查询：rpm -qa(查询所有安装的rpm包)
+								                  rpm -qa|grep 包  (过滤)
+								卸载：rpm -e 包
+								           rpm -e - -nodeps 包
+								            nodeps 如果该rpm包的安装依赖其它包，即使没装，也强制装
+								安装：rpm -ivh 包全名
+								            i安装，v显示详细信息，h进度条
+								            - -nodeps 不检测依赖进度
+
+								MySQL：
+								              安装
+								              service mysql start
+								              mysqladmin -u root password "root"
+								              mysql -u root -p
+								jdk：
+								         环境变量位置：/etc/profile
+								         JAVA _HOME
+								         PATH
+								         CLASSPATH
+								         source /etc/profile
+								tomcat：	解压
 							</p>
 						</li>
 					</ul>
