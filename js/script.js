@@ -1,4 +1,7 @@
 window.onload=function(){
+
+
+	/* 界面加载 */
 	var loading=document.getElementById('loading');
 	setTimeout(function(){
 		if (document.readyState=="complete") {
@@ -90,9 +93,16 @@ window.onload=function(){
 			}
 		},10)
 	}
-	var Linux=document.getElementById("Linux");
-	Linux.innerHTML=ReplaceSeperator(Linux.innerHTML);
+
+
+
 	/*文章自动换行*/
+
+	var list=getElementsByClassName('*','list')
+	for (var i = 0; i < list.length; i++) {
+		list[i].innerHTML=ReplaceSeperator(list[i].innerHTML)
+	}
+	/* br函数 */
 	function ReplaceSeperator(mobiles) {
 	    var i;
 	    var result = "<span>";
@@ -110,8 +120,19 @@ window.onload=function(){
 	    return result.substring(0,result.length-6);;
 	}
 
-
-
+	/* getClassName */
+	function getElementsByClassName(tagName,className) {
+        var tag = document.getElementsByTagName(tagName);
+        var tagAll = [];
+        for(var i = 0 ; i<tag.length ; i++){
+            if(tag[i].className.indexOf(className) != -1){
+                tagAll[tagAll.length] = tag[i];
+            }
+        }
+ 
+        return tagAll;
+ 
+    }
 	// /*二维码*/
 	// var qq=document.getElementById('qq');
 	// var QQ=document.getElementById('QQ');
