@@ -113,6 +113,7 @@ a{
 	margin: 30px auto;
 	width: 220px;
 	text-align: center;
+	line-height: 25px;
 }
 .left .second #nav1{
 	padding-left: 90px;
@@ -242,9 +243,6 @@ a{
 	left: 0;
 	z-index: 1;
 }
-.right .rightnav span{
-	float: left;
-}
 .circle{
 	border-radius: 42px;
 	background: #1BC8E3;
@@ -252,34 +250,32 @@ a{
 	width: 42px;
 	margin-left: 200px;
 	transition: all ease-out 1s;
+	display: inline-block;
+	position: relative;
 }
 .circle:hover{
-	width: 250px;
+	width: 270px;
 }
 .circle:hover .so{
 	width: 200px;
-	display: block;
-	
-}
-.circle:hover .circle .search{
-	margin-left: 200px;
 }
 .circle .search{
 	height: 22px;
-	line-height: 42px;
 	font-size: 22px;
-	margin: 10px;
 	cursor: pointer;
 	transition: all ease-out 1s;
+	position: absolute;
+	right: 10px;
+	top: 10px;
 }
 .so{
 	height: 23px;
 	border-radius: 3px;
-	display: none;
-	margin-top: 7.5px;
-	margin-left: 15px;
+	margin-left: 12px;
+	margin-top: 10px;
 	width: 0px;
-	transition: all ease-out 5s;
+	transition: all ease-out 1s;
+	border: 0px;
 }
 .right .star{
 	float: left;

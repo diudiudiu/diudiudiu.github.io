@@ -35,6 +35,7 @@
 					WeChat：mjx171738749。<br>
 					请写清来意。<br>
 					可划过下方icon扫描二维码。<br>
+					欢迎互相交流。
 				</p>
 				<ul class="nav" id="nav1">
 					<li><a href="#write">日志</a>/</li>
@@ -87,10 +88,12 @@
 				
 				<a href="https://github.com/diudiudiu/diudiudiu.github.io"><div class="star"><i class="icon-github"></i>Star</div></a>
 				<a href="https://github.com/diudiudiu/diudiudiu.github.io/stargazers"><div class="starnum">1</div></a>
-				<span class="circle hide">
+				<div class="circle">
 					<input class="so" id="so" type="text" placeholder="例:CSS">
 					<i class="icon-search search" id="search" title="搜索"></i>
-				</span>
+					
+				</div> 
+					
 			</div>
 			<div class="rightbody">
 				<div class="write" id="write">
@@ -99,13 +102,10 @@
 						<li>
 							<h2>CSS-reset<span class="date"></span></h2>
 							<p class="list">
-								在 HTML标签在浏览器里有默认的样式，不同浏览器的默认样式之间也会有差别。为了更好的布局和开发，需要清除HTML标签的的默认样式。这就是CSS reset。个人的理解就是自己用CSS来重新定义各个HTML标签。<br>
+								在 HTML标签在浏览器里有默认的样式，不同浏览器的默认样式之间也会有差别。为了更好的布局和开发，需要清除HTML标签的的默认样式。这就是CSS reset。个人的理解就是自己用CSS来重新定义各个HTML标签。
 								1.最基础的reset： 
-								<code>
 									* { padding: 0; margin: 0; border: 0; }
-								</code>
 								2.Yahoo！的reset代码。（个人用到最多的！！）
-								<code>
 									body, div, dl, dt, dd, ul, ol, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {padding:0; margin:0;} 	<br>
 									fieldset, img{border:0;} <br>
 									table {border-collapse:collapse; border-spacing:0;} <br>
@@ -115,7 +115,6 @@
 									h1, h2, h3, h4, h5, h6{font-weight:normal; font-size:100%;} <br>
 									q:before, q:after {content: '';} <br>
 									abbr,acronym{border:0;}
-								</code>
 								各个网站论坛有着各种各样的CSS reset，当然CSS reset也可以按照个人习惯去设置。<br>
 								<em style="color: red; font-weight: bold;">此篇文章只是用于提醒HTML标签有默认样式！！！</em>
 							</p>
@@ -186,28 +185,28 @@
 							<p class="list">
 								Canvas是HTML5新元素用于绘制图画，默认大小为300*150；如果设置大小需要在Canvas的标签中设置height、width，Canvas标签内的内容只在浏览器不支持canvas的时候显示。开始绘画时，首先要获取到Canvas的标签的id，通过getContext()函数设置其2D or 3D 效果。<br>
 								<em>html结构</em>
-								<span>&lt;canvas id="canvas" width="1024" height="768"&gt;</span>
-								<span>	当前浏览器不支持canvas，请更换浏览器。</span>
-								<span>&lt;/canvas&gt;</span>
+								&lt;canvas id="canvas" width="1024" height="768"&gt;
+								&nbsp;&nbsp;&nbsp;&nbsp;当前浏览器不支持canvas，请更换浏览器。
+								&lt;/canvas&gt;
 								<em>JS代码</em>
-								<span>var canvas=document.getElementById('canvas');</span>
-								<span>var context=canvas.getContext('2d');//绘图上下文环境。</span>
-								<span>这里有个坑Canvas是基于!!!状态!!!来绘制。</span>
-								<span>函数context.moveTo(x0,y0);表示画笔的起始点(x0,y0);</span>
-								<span>context.lineTo(x1,y2);表示从上个点画到(x1,y1)的直线。</span>
-								<span>context.lineWidth=number；表示线条轮廓的宽度。</span>
-								<span>context.stroke()；表示状态描述结束开始绘画。</span>
-								<span>context.strokeStyle="color";表示设置线条的颜色</span>
-								<span>context.beginPath();表示声明新的状态描述。</span>
-								<span>context.closePath();表示将首尾的点进行连接。</span>
-								<span>context.fillStyle='color';表示设置填充颜色。</span>
-								<span>context.fill()；进行填充。</span>
-								<span>context.rect(x,y,width,height);绘制矩形</span>
-								<span><em style="color: red; font-weight: bold;">注意！</em>如果先进行绘画再进行颜色填充那么 </span>
-								<span>假如线条宽度为10，则线条最终的宽度会变为5;原因在于线条宽度的10分为内部的5和外部的5，先绘制再填充则把内部的5给覆盖了。</span>	
-								<span>context.beiginPath();</span>
-								<span>context.lineto(x,y);</span>
-								<span>等价于context.moveTo(x,y);</span>
+								var canvas=document.getElementById('canvas');
+								var context=canvas.getContext('2d');//绘图上下文环境。
+								这里有个坑Canvas是基于!!!状态!!!来绘制。
+								函数context.moveTo(x0,y0);表示画笔的起始点(x0,y0);
+								context.lineTo(x1,y2);表示从上个点画到(x1,y1)的直线。
+								context.lineWidth=number；表示线条轮廓的宽度。
+								context.stroke()；表示状态描述结束开始绘画。
+								context.strokeStyle="color";表示设置线条的颜色
+								context.beginPath();表示声明新的状态描述。
+								context.closePath();表示将首尾的点进行连接。
+								context.fillStyle='color';表示设置填充颜色。
+								context.fill()；进行填充。
+								context.rect(x,y,width,height);绘制矩形
+								<em style="color: red; font-weight: bold;">注意！</em>如果先进行绘画再进行颜色填充那么 
+								假如线条宽度为10，则线条最终的宽度会变为5;原因在于线条宽度的10分为内部的5和外部的5，先绘制再填充则把内部的5给覆盖了。
+								context.beiginPath();
+								context.lineto(x,y);
+								等价于context.moveTo(x,y);
 							</p>
 						</li>
 						<li class="">
