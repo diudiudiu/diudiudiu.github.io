@@ -56,7 +56,7 @@ window.onload=function(){
 	    oPin.appendChild(hr);
 	    var omessage=document.createElement('div');
 	    omessage.className='message';
-	    omessage.innerHTML="<p>"+text+"</p><span>"+time+"</span>"
+	    omessage.innerHTML="<p>"+text+"</p><span class='time'>"+time+"</span>"
 	    oPin.appendChild(omessage);
 	}
 	

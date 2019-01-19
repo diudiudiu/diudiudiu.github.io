@@ -419,6 +419,10 @@ code{
 	text-decoration: underline;
 	color: #5C42F8;
 }
+.board .time{
+	font-weight: 500;
+	color: #1EA8E0;
+}
 .board ul li .info span{
 	position: absolute;
 	right: 50px;
