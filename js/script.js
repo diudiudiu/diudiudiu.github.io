@@ -133,6 +133,13 @@ window.onload=function(){
         return tagAll;
  
     }
+
+    /* 多背景色 左对齐*/
+
+   function marginLeft(tag,oth){
+   		tagmarginleft=tag.style.marginLeft;
+   		oth.style.marginLeft=tagmarginleft+'px';
+   }
 	// /*二维码*/
 	// var qq=document.getElementById('qq');
 	// var QQ=document.getElementById('QQ');
