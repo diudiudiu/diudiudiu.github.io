@@ -166,19 +166,20 @@ a{
 }
 .mail{
 	background: #005A87;
+	position: relative;
 }
 
 .Email {
 	position: absolute;
 	height: 0px;
-	width: 350px;
-	left: -95px;
+	width: 290px;
+	left: -130px;
 	top: 36px;
 	overflow: hidden;
 	transition: height ease-out 0.5s;
 }
 .mail:hover .Email{
-	height: 140px;
+	height: 150px;
 }
 .mail .triangel{
 	width: 0;
@@ -188,15 +189,18 @@ a{
     border-top: none;
     border-left-color: transparent;
     border-right-color: transparent;
-    margin-left: 70px;
+    margin: 0 auto;
 }
 .mail p{
 	font-size: 18px;
 	background: #005A87;
-	width: 350px;
-	margin-left: -130px;
-	box-shadow: 0 15px 10px  rgba(65, 170, 189, 0.5);
-	text-align: right;
+	width: 290px;
+	height: 35px;
+	line-height: 35px;
+	margin-left: 0px;
+	box-shadow: 0 8px 10px  rgba(65, 170, 189, 0.5);
+	border-radius: 10px;
+	color: #ffffff;
 }
 .weibo{
 	background: #F7CE3D;
@@ -244,6 +248,7 @@ a{
 	width: 200px;
 	background: #1DC5FC;
 	margin-left: -1px;
+	border-radius: 10px;
 }
 .VX .triangel{
 	width: 0;
@@ -260,7 +265,7 @@ a{
 	width: 200px;
 	background: #18D814;
 	margin:0 auto;
-
+	border-radius: 10px;
 }
 .imgbg img{
 	margin: 10px;
