@@ -121,6 +121,10 @@ a{
 .left .second #nav2{
 	padding-left: 70px;
 }
+.nav li:hover .nav li>a{
+	color: #FF0000;
+	font-weight: 600;
+}
 .nav{
 	overflow: hidden;
 }
@@ -376,6 +380,7 @@ a{
 	box-shadow: 0px 1px 4px rgba(255, 255, 255, 0.3);
 	border: 1px solid #D8BDD4;
 	padding: 30px 0 50px 50px;
+	box-shadow: 0 8px 10px  rgba(255, 255, 255,0.2);
 }
 .write ul li h2{
 	height: 34px;
