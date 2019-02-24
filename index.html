@@ -157,6 +157,38 @@
 								CSS：
 									float浮动：
 									可让元素默认转换为inline-block元素(行内元素加float则这个元素可直接设置宽高浮动元素不会超过父元素padding值。
+									清除浮动：
+										1.额外标签
+										在浮动的块元素后加个空<<code><div style="clear: both;"></div></code>标签或者br等标签。
+										缺点：添加许多无意义的标签，结构化差。
+										2.给父级元素加overflow属性方法
+										可以通过BFC的方式，给父级元素加：overflow为 hidden(主要) | auto | scroll。
+										缺点内容增多时候容易造成不会自动换行导致内容被隐藏，无法显示需要溢出的元素。
+										3.使用afert伪元素
+										（百度，网易）
+										.clearfix:after{
+											content:"";
+											display:block;
+											height:0;
+											clear:both;
+											visibility:hidden;
+										}
+										.clearfix{
+											*zoom:1; //IE6-7专有
+										}
+										缺点：由于IE6-7不支持：after，使用zoom：1出发hasLayout。
+										4.使用before和afert双伪元素
+										.clearfix:before，.clearfix:after{
+											content:"";
+											display:table;	//此句触发BFC
+										}
+										.clearfix:after{
+											clear:both;
+										}
+										.clearfix{
+											*zoom:1; //IE6-7专有
+										}
+										缺点：由于IE6-7不支持：after，使用zoom：1出发hasLayout。
 							</p>
 						</li>
 						<li class="hide">
