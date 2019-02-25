@@ -136,8 +136,8 @@
 								绝对路径：网络上从hhtps：//开始写路径，本地从磁盘位置开始写。
 							</p>
 						</li>
-						<li class="hide">
-							<h2>HTML知识点<span class="date"></span></h2>
+						<li class="">
+							<h2>HTML+CSS知识点<span class="date"></span></h2>
 							<p class="list">	
 								table标签：
 									cellspacing 是单元格与单元格的距离 与盒子模型的margin
@@ -156,7 +156,11 @@
 								注意！！！p h1-h6标签内不放块元素。
 								CSS：
 									float浮动：
-									可让元素默认转换为inline-block元素(行内元素加float则这个元素可直接设置宽高浮动元素不会超过父元素padding值。
+										可让元素默认转换为inline-block元素(行内元素加float则这个元素可直接设置宽高)浮动元素不会超过父元素padding值。
+
+										浮动不是完全的脱离标准流。文字不能绝对的覆盖。
+
+										多个有边框div在一行可用margin-left或者margin-right:-1px;去除边框紧贴变宽的效果。hover触发边框时，应加上position：relative以此来提升z-index。也可在原盒子附加position：relative。
 									清除浮动：
 										1.额外标签
 										在浮动的块元素后加个空<<code><div style="clear: both;"></div></code>标签或者br等标签。
@@ -177,7 +181,8 @@
 											*zoom:1; //IE6-7专有
 										}
 										缺点：由于IE6-7不支持：after，使用zoom：1出发hasLayout。
-										4.使用before和afert双伪元素
+										4.使用before和afert双伪元素（在父元素上使用）
+										（小米）
 										.clearfix:before，.clearfix:after{
 											content:"";
 											display:table;	//此句触发BFC
@@ -189,6 +194,12 @@
 											*zoom:1; //IE6-7专有
 										}
 										缺点：由于IE6-7不支持：after，使用zoom：1出发hasLayout。
+									定位： 
+									隐藏模式转换：
+										固定定位和绝对定位可让元素默认转换为inline-block元素(行内元素加float则这个元素可直接设置宽高)。
+										注意！！！要设置宽高
+									z-index:
+										默认为0，数值相同后来居上，只要相对定位，决定定位，固定定位有此属性。
 							</p>
 						</li>
 						<li class="hide">
