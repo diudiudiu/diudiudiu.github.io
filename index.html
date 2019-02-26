@@ -3,9 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>diuidiudiu-blog</title>
+	<meta name="description" content="前端菜鸟diudiudiu的博客，入门知识点及个人笔记。" />
+	<meta name="Keywords" content="diudiudiu，github，前端，blog，博客。" />
+
+	<!-- 整体样式 -->
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<!-- reset -->
 	<link rel="stylesheet" type="text/css" href="css/public-clear.css"/>
+	<!-- icon字体 -->
 	<link rel="stylesheet" type="text/css" href="css/icon.css"/>
+
 	<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
@@ -136,6 +143,29 @@
 								绝对路径：网络上从hhtps：//开始写路径，本地从磁盘位置开始写。
 							</p>
 						</li>
+						<li>
+							<h2>img底部空白间隙<span class="date"></span></h2>
+							<p class="list">	
+								原因：inlin的默认的垂直对齐方式vertical-align的默认值是baseline，以X字母的下方为基准。
+								解决方法：
+								1.修改img行内元素的垂直居中方式
+									img {
+									    vertical-align: bottom;
+									    /* vertical-align: top;*/
+									}
+								2.修改父元素行高，使行高变小，这样基线下方的位置基本可以忽略。
+								    line-height: 0px;		
+								3.让img变成块级元素，不在受行内基线的影响。	
+									img {
+									    display: block;
+									}
+
+									 浮动也可以让元素变成块级 
+									img {
+									    float：left;
+									}				
+							</p>
+						</li>
 						<li class="">
 							<h2>HTML+CSS知识点<span class="date"></span></h2>
 							<p class="list">	
@@ -154,6 +184,7 @@
 									完整的表单分为三个部分，表单元素、提示信息和表单域。
 									label标签：用于绑定一个表单元素（for="id"）
 								注意！！！p h1-h6标签内不放块元素。
+								行内块与行内块之间存在缝隙，浮动可解决。
 								CSS：
 									float浮动：
 										可让元素默认转换为inline-block元素(行内元素加float则这个元素可直接设置宽高)浮动元素不会超过父元素padding值。
@@ -163,7 +194,7 @@
 										多个有边框div在一行可用margin-left或者margin-right:-1px;去除边框紧贴变宽的效果。hover触发边框时，应加上position：relative以此来提升z-index。也可在原盒子附加position：relative。
 									清除浮动：
 										1.额外标签
-										在浮动的块元素后加个空<<code><div style="clear: both;"></div></code>标签或者br等标签。
+										在浮动的块元素后加个空标签&lt;div style="clear: both;"&gt;&lt;/div&gt;	或&lt;br /&gt;等标签。
 										缺点：添加许多无意义的标签，结构化差。
 										2.给父级元素加overflow属性方法
 										可以通过BFC的方式，给父级元素加：overflow为 hidden(主要) | auto | scroll。
@@ -200,6 +231,19 @@
 										注意！！！要设置宽高
 									z-index:
 										默认为0，数值相同后来居上，只要相对定位，决定定位，固定定位有此属性。
+									outline: none; 取消轮廓线input,textarea
+									浏览器默认样式不一样最好自己设定一个border。
+									textarea文本域防止拖拽
+										resize: none;
+									vertical-align特别针对行内块元素，控制图片表单文字对齐;
+									white-space:nowrap;
+									强制在同一行内显示所有文本，直到文本结束或者遇到br标签才换行。
+									text-overflow : clip | ellipsis
+									设置或检索是否使用一个省略标记（...）标示对象内文本的溢出
+									clip : 　不显示省略标记（...），而是简单的裁切 
+									ellipsis : 　当对象内文本溢出时显示省略标记（...）
+									注意一定要首先强制一行内显示，再次和overflow属性  搭配使用
+
 							</p>
 						</li>
 						<li class="hide">
