@@ -183,6 +183,23 @@
 								from表单：(具体表单练习在<a href="https://github.com/diudiudiu/webpractice/tree/master/HTML%2BCSS%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0">这里</a>)
 									完整的表单分为三个部分，表单元素、提示信息和表单域。
 									label标签：用于绑定一个表单元素（for="id"）
+									H5新增input加属性
+									input type="text"
+									placeholder="提示信息"
+									autofocus	默认获取光标
+									required 必填项
+									accesskey 键盘快捷键获取焦点
+
+									input type="file"
+									multiple 多选文件
+								HTML5
+									audio元素支持三种音频格式 Ogg MP3 Wav
+										autoplay 自动播放
+										controls 控制
+										loop 循环播放
+									video元素支持三种视频格式 OGG MPEG 4 WebM
+
+
 								注意！！！p h1-h6标签内不放块元素。
 								行内块与行内块之间存在缝隙，浮动可解决。
 								CSS：
@@ -247,8 +264,29 @@
 							</p>
 						</li>
 						<li class="hide">
-							<h2>数据类型<span class="date"></span></h2>
+							<h2>JS数据类型<span class="date"></span></h2>
 							<p class="list">	
+								分为6类
+								number
+									Number.MAX_VALUE  数字的最大值
+									注意！！！！不要用小数去验证小数，小数存放的精度有问题。
+									isNaN(num) 是数字返回false
+								string
+									字符串的拼接
+									一个是字符串一个是数字 使用+号，则是拼接，不是相加
+									例如 var num1="12";
+										 var num2=5;
+										 var sum=num1+num2; 结果为125
+									一个是字符串一个是数字 使用-号，则是计算
+									例如 var num1="12";
+										 var num2=5;
+										 var sum=num1-num2; 结果为7
+								boolean
+								null
+								underfined
+								object
+								
+								
 								NaN与任何值都不相等，包括NaN本身。
 								null==undefined true
 								true == 2       false
