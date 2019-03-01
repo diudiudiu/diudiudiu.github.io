@@ -286,7 +286,15 @@
 								underfined
 								object
 								
+								类型转换
+							    parseInt(a);将a转为整数
+							    a如果开头是非数字则结果为NaN
+							    若数字开头后跟字符则结果为前数字段
 								
+								a.toString();
+								将a转为字符串
+								String(a);
+								有意义的用.toString() 用String()报错
 								NaN与任何值都不相等，包括NaN本身。
 								null==undefined true
 								true == 2       false
@@ -295,6 +303,14 @@
 								"5"==5			true
 								全等操作符 === 它只在两个操作数未经转换就像等的情况下返回true
 								null===undefined false
+							</p>
+						</li>
+						<li class="hide">
+							<h2>JS的arguments对象<span class="date"></span></h2>
+							<p class="list">	
+								arguments对象存在函数中代表着传入的数据。
+								arguments[0]代表第一个传入的参数
+								arguments.length可获取传入的参数的长度
 							</p>
 						</li>
 						<li class="">
