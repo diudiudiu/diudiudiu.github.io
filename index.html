@@ -306,11 +306,36 @@
 							</p>
 						</li>
 						<li class="hide">
-							<h2>JS的arguments对象<span class="date"></span></h2>
-							<p class="list">	
-								arguments对象存在函数中代表着传入的数据。
-								arguments[0]代表第一个传入的参数
-								arguments.length可获取传入的参数的长度
+							<h2>JS函数<span class="date"></span></h2>
+							<p class="list">	 
+								1.arguments对象
+									arguments对象存在函数中代表着传入的数据。
+									arguments[0]代表第一个传入的参数
+									arguments.length可获取传入的参数的长度
+								2.函数调用
+									自调用:声明的同时直接调用，一次性。
+									(function(){
+										console.log("调用");
+									})();
+									函数作为参数，那就是回调函数。
+									函数可作为返回值。
+								3.函数作用域(函数适用范围)
+									块级作用域
+									一对大括号可以看做是一块，在这对大括号里定义的变量，只在这个区域的中使用，但是在js中在这个块级作用域中定义的变量的，外面也能用。
+									<em style="color: red; font-weight: bold;">由此，JS没有块级作用域，只有函数除外。</em>
+									局部变量
+									在函数内部定义的变量是局部变量，外部不能使用。
+									全局变量
+									除函数以外，其它的任何位置定义的变量都是全局变量。（如果页面不关闭，那么就不会释放，就会占空间，消耗内存）
+									隐式全局变量（声明的变量没有var，就叫隐式全局变量）
+									例如
+									function f1(){
+									 	num=10;
+									}
+									f1();
+									console.log(number);//此处为10
+									隐身全局变量可以被delete 删除。
+									全局变量不可被删除。 
 							</p>
 						</li>
 						<li class="">
