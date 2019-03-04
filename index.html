@@ -281,11 +281,12 @@
 									例如 var num1="12";
 										 var num2=5;
 										 var sum=num1-num2; 结果为7
-								boolean
-								null
-								underfined
+								boolean	   true false
+								null	   只能个人设置为null
+								underfined 声明变量未赋值。
 								object
-								
+								isNaN()函数通常用于检测 parseFloat() 和 parseInt() 的结果，以判断它们表示的是否是合法的数字。当然也可以用 isNaN() 函数来检测算数错误，比如用 0 作除数的情况。
+
 								类型转换
 							    parseInt(a);将a转为整数
 							    a如果开头是非数字则结果为NaN
@@ -336,6 +337,94 @@
 									console.log(number);//此处为10
 									隐身全局变量可以被delete 删除。
 									全局变量不可被删除。 
+							</p>
+						</li>
+						<li class="hide">
+							<h2>JS对象<span class="date"></span></h2>
+							<p class="list">
+								通过instanceof查询对象类型	 
+								1.工厂模式创建对象，一次创建多个对象。
+									把创建对象的代码封装进函数中，信息作为参数。
+									function creactobj(name,age){
+										var obj=new object();
+										obj.name=name;
+										obj.age=age;
+										obj.eat=function(){
+											console.log(this.name+"正在吃饭");
+										}
+									}
+
+								2.自定义构造函数创建对象
+									构造函数名字首字母大写
+									function Person(name,age){
+										
+										this.name=name;
+										this.age=age;
+										this.eat=function(){
+											console.log(this.name+"正在吃饭");
+										}
+									}
+								3.字面量的方式创建对象
+									var obj={};
+									obj.name="小明";
+									obj.age=17;
+									obj.eat=function(){
+										console.log(this.name+"正在吃饭");
+									}
+
+									优化
+									var obj={
+										name:"小明",
+										age:17,
+										obj.eat:function(){
+											console.log(this.name+"正在吃饭")
+										}
+									};
+									缺陷：一次性的对象
+								4.json
+								for-in
+								for(var key in json){
+									//key 表示json对象中的属性的名字
+									json[key]表示key对应的value
+								}
+								5.内置对象
+								实例对象：通过构造函数创建出来，实例化的对象。
+								实例方法，必须通过实例对象调用
+								静态对象：不需要创建。直接就是一个对象。方法（静态方法）直接通过这个对象的名字调用。
+								静态方法，必须通过大写的对象调用。
+ 								Math
+ 									比较常用的属性
+ 									Math.E   数学中的底数
+ 									Math.PI  数学中的圆周率
+ 									常用方法
+ 									Math.abs(x) 绝对值 x=null 结果为0 其它类型为NaN
+									Math.ceil(x) 向上取整数
+									Math.floor(x) 向下取整数
+									Math.max(x,y,z) 取一堆数字中的最大值
+									Math.min(x,y,z) 取一堆数字中的最小值
+									Math.pow(x,y) x的y次幂
+									Math.sqrt(x) x的平方根
+									Math.random() 返回一个[0~1)内的随机数。
+ 								Date
+ 									需要实例对象。
+ 									var dt=new Date();
+ 									var dt=+new Date(); 特殊写法 若不支持H5浏览器则用该版本  
+ 									常用方法
+									dt.getFullYear() 获取年份
+									dt.getMonth() 获取月 从0开始要+1
+									dt.getDate() 获取日
+									dt.getHours() 获取小时
+									dt.getMinutes() 获取分钟
+									dt.getSeconds() 获取秒
+									dt.getDay()  获取星期 从周日 0 开始
+									dt.toDateString() 英文格式日期
+									dt.toLocaleDateString() 数字格式
+									dt.toTimeString() 英文 小时分钟秒
+									dt.toLocaleTimeString() 数字格式 小时分钟秒
+									dt.valueOf() 毫秒数
+								String
+								Array
+								Object
 							</p>
 						</li>
 						<li class="">
