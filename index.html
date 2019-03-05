@@ -168,7 +168,8 @@
 						</li>
 						<li class="">
 							<h2>HTML+CSS知识点<span class="date"></span></h2>
-							<p class="list">	
+							<p class="list">
+								
 								table标签：
 									cellspacing 是单元格与单元格的距离 与盒子模型的margin
 									cellpadding 是单元格内填充 与盒子模型的padding
@@ -252,6 +253,7 @@
 									浏览器默认样式不一样最好自己设定一个border。
 									textarea文本域防止拖拽
 										resize: none;
+										readonly 只读 用于公告 
 									vertical-align特别针对行内块元素，控制图片表单文字对齐;
 									white-space:nowrap;
 									强制在同一行内显示所有文本，直到文本结束或者遇到br标签才换行。
@@ -308,7 +310,7 @@
 						</li>
 						<li class="hide">
 							<h2>JS函数<span class="date"></span></h2>
-							<p class="list">	 
+							<p class="list"> 
 								1.arguments对象
 									arguments对象存在函数中代表着传入的数据。
 									arguments[0]代表第一个传入的参数
@@ -337,6 +339,35 @@
 									console.log(number);//此处为10
 									隐身全局变量可以被delete 删除。
 									全局变量不可被删除。 
+							</p>
+						</li>
+						<li class="hide">
+							<h2>DOM<span class="date"></span></h2>
+							<p class="list"> 
+								阻止超链接默认跳转用return flase;
+								根据id属性的值获取元素,返回来的是一个元素对象
+							   	document.getElementById("id属性的值");
+							  
+							    根据标签名字获取元素,返回来的是一个伪数组,里面保存了多个的DOM对象
+							    document.getElementsByTagName("标签名字");
+							  
+							    下面的几个,有的浏览器不支持
+							  
+							    根据name属性的值获取元素,返回来的是一个伪数组,里面保存了多个的DOM对象
+							    document.getElementsByName("name属性的值")
+							    根据类样式的名字来获取元素,返回来的是一个伪数组,里面保存了多个的DOM对象
+							    document.getElementsByClassName("类样式的名字")
+							    根据选择器获取元素,返回来的是一个元素对象
+							    document.querySelector("选择器的名字");
+							  
+							    根据选择器获取元素,返回来的是一个伪数组,里面保存了多个的DOM对象
+							    document.querySelectorAll("选择器的名字")
+
+							    html标签中可以自己添加属性，用于记录数据	
+								js调用getAttribute("your") 获取自定义属性的值
+								  调用setAttribute("your",value) 设置自定义your属性
+								  调用removeAttribute("your") 移除属性
+
 							</p>
 						</li>
 						<li class="hide">
@@ -381,7 +412,7 @@
 										}
 									};
 									缺陷：一次性的对象
-								4.json
+								4.JSON
 								for-in
 								for(var key in json){
 									//key 表示json对象中的属性的名字
@@ -423,8 +454,94 @@
 									dt.toLocaleTimeString() 数字格式 小时分钟秒
 									dt.valueOf() 毫秒数
 								String
+									字符串可以通过索引访问字符串中的某个值但是，是只读。
+									字符串值的改变是指向的堆改变了，不是值发生了改变。
+									实例方法
+									str.charAr(x) 返回指定位置的字符。超出为空
+									str.concat(str2,str3...) 与多个字符串进行拼接返回一个新的字符串
+									str.slice(x,y) 返回[x,y)的字符串
+									str.split("x",num) 返回以x切割的num个字符串数组num可省略
+									str.substr(x,y) 返回以x开始的y个字符串 y可省略
+									str.substring(x,y) 返回[x,y)的字符串
+
+									substring()是以两个参数中较小一个作为起始位置，较大的参数作为结束位置。
+
+									slice()接收的参数是负数时，会将它字符串的长度与对应的负数相加，结果作为参数，也可理解为倒数。
+									
+									substr()接收的参数是负数时，会将它字符串的长度与对应的负数相加，结果作为参数，也可理解为倒数。	
+
+									substring()则干脆将负参数都直接转换为0。
+									
+									str.indexOf(st，y) 在str字符串中从y找字符串st并返回其索引 y可省略
+									str.lastIndexOf(st，y) 从后往前找
+									str.toLocaleLowerCase() 字符串变小写
+									str.toLowerCase() 字符串变小写
+									str.toLocaleUpperCase() 字符串变大写
+									str.toUpperCase() 字符串变大写
+									str.trim() 清除字符串两端的空格
+									案例：统计字符串字母出现的个数 扩展（英语词典）
+									var str="abcdeqwaszxafffgkljp"
+									str=str.toLocaleLowerCase();
+									var obj={};
+									for(var i=0;i&lt;str.length;i++){
+										var key = str[i]; // 每个字母
+										if(obj[key]){
+											//是否存在这个键
+											ojb[key]++;
+										}else{
+											obj[key]=1;
+										}
+									}
+
+									支持正则表达式
+									str.replace("a","b") 将a替换为b 
+									静态方法
+									String.fromCharCode(数字值，可以是多个) 返回ASCII对应的字符串
+
 								Array
+									静态方法
+									Array.isArray(x) x是否是数组
+									实例方法
+									arr.concat(str2,str3...) 与多个数组进行拼接返回一个新的数组
+									arr.every(function(a,b){
+										a 元素的值
+										b 索引的值
+										return a&gt;2000;
+									}); 数组中的每个数字是否全部大于2000
+									
+									arr.filter(function(a,b){
+										a 元素的值
+										b 索引的值
+										return a&gt;2000;
+									});  返回数组中的数字大于2000的子数组 
+									arr.push(x) arr数组追加x,返回长度
+									arr.pop()   删除最后一个，返回删除元素的值
+									arr.shift() 删除第一个，返回删除元素的值
+									arr.unshift(x) arr数组第一个元素前插入x，返回长度
+									arr.forEach(callback) 遍历数组
+									arr.indexOf(x) 在arr数组中找x并返回其索引 
+									arr.lastIndexOf(x) 从后往前找
+									arr.join("|") 返回字符串
+									arr.map(callback) 返回arr执行过callback函数的结果数组
+									arr.reverse() 反转
+									arr.sort(function(a,b){
+										if(a&gt;b){
+											return 1;
+										}else if(a==b){
+											return 0;
+										}else{
+											return -1;
+										}
+									}) 排序按function的规则
+									arr.slice(x,y)  返回[x,y)的数组
+									arr.splice(开始的位置，要删除的个数，替换的元素的值) 一般用于删除数组中的元素 或者替换元素，或者插入元素
 								Object
+								6.基本包装类型
+								本身是基本类型，但是在执行代码的过程中，如果这种类型调用了属性或方法，那么这种类型就不再是基本类型，而是基本包装类型，这个遍历也不是普通变量，而是基本包装类型对象。
+								number string boolean 基本类型
+								
+								如果是对象&&true true&&对象
+								结果就是后方的 true 对象
 							</p>
 						</li>
 						<li class="">
