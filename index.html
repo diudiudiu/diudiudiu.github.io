@@ -116,17 +116,17 @@
 							<p class="list">
 								在 HTML标签在浏览器里有默认的样式，不同浏览器的默认样式之间也会有差别。为了更好的布局和开发，需要清除HTML标签的的默认样式。这就是CSS reset。个人的理解就是自己用CSS来重新定义各个HTML标签。
 								1.最基础的reset： 
-									* { padding: 0; margin: 0; border: 0; }
+								&emsp;	* { padding: 0; margin: 0; border: 0; }
 								2.Yahoo！的reset代码。（个人用到最多的！！）
-									body, div, dl, dt, dd, ul, ol, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {padding:0; margin:0;} 	<br>
-									fieldset, img{border:0;} <br>
-									table {border-collapse:collapse; border-spacing:0;} <br>
-									ol, ul {list-style:none;} <br>
-									address, caption, cite, code, dfn, em, strong, th,var { font-weight:normal; font-style:normal;} <br>
-									caption, th{text-align:left;} <br>
-									h1, h2, h3, h4, h5, h6{font-weight:normal; font-size:100%;} <br>
-									q:before, q:after {content: '';} <br>
-									abbr,acronym{border:0;}
+								&emsp;	body, div, dl, dt, dd, ul, ol, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {padding:0; margin:0;} 	<br>
+								&emsp;	fieldset, img{border:0;} <br>
+								&emsp;	table {border-collapse:collapse; border-spacing:0;} <br>
+								&emsp;	ol, ul {list-style:none;} <br>
+								&emsp;	address, caption, cite, code, dfn, em, strong, th,var { font-weight:normal; font-style:normal;} <br>
+								&emsp;	caption, th{text-align:left;} <br>
+								&emsp;	h1, h2, h3, h4, h5, h6{font-weight:normal; font-size:100%;} <br>
+								&emsp;	q:before, q:after {content: '';} <br>
+								&emsp;	abbr,acronym{border:0;}
 								各个网站论坛有着各种各样的CSS reset，当然CSS reset也可以按照个人习惯去设置。<br>
 								<em style="color: red; font-weight: bold;">此篇文章只是用于提醒HTML标签有默认样式！！！</em>
 							</p>
@@ -146,23 +146,23 @@
 						<li>
 							<h2>img底部空白间隙<span class="date"></span></h2>
 							<p class="list">	
-								原因：inlin的默认的垂直对齐方式vertical-align的默认值是baseline，以X字母的下方为基准。
+								原因：img的默认的垂直对齐方式vertical-align的默认值是baseline，以X字母的下方为基准。
 								解决方法：
 								1.修改img行内元素的垂直居中方式
 									img {
-									    vertical-align: bottom;
-									    /* vertical-align: top;*/
+								&emsp;	    vertical-align: bottom;
+								&emsp;	    /* vertical-align: top;*/
 									}
 								2.修改父元素行高，使行高变小，这样基线下方的位置基本可以忽略。
-								    line-height: 0px;		
+								&emsp;    line-height: 0px;		
 								3.让img变成块级元素，不在受行内基线的影响。	
 									img {
-									    display: block;
+								&emsp;	    display: block;
 									}
 
 									 浮动也可以让元素变成块级 
 									img {
-									    float：left;
+								&emsp;	    float：left;
 									}				
 							</p>
 						</li>
@@ -171,45 +171,45 @@
 							<p class="list">
 								
 								table标签：
-									cellspacing 是单元格与单元格的距离 与盒子模型的margin
-									cellpadding 是单元格内填充 与盒子模型的padding
-									三参为0(border cellpadding cellspacing)
-									caption表格标题	必须紧跟table标签后。
-									最好划分thead,tbody。
-									合并单元格：
-									colspan 水平跨度   rowspan 纵向跨度
-									CSS属性：
-										border-collapse:collapse;  合并相邻边框
+								&emsp;	cellspacing 是单元格与单元格的距离 与盒子模型的margin
+								&emsp;	cellpadding 是单元格内填充 与盒子模型的padding
+								&emsp;	三参为0(border cellpadding cellspacing)
+								&emsp;	caption表格标题	必须紧跟table标签后。
+								&emsp;	最好划分thead,tbody。
+								&emsp;	合并单元格：
+								&emsp;	colspan 水平跨度   rowspan 纵向跨度
+								&emsp;	CSS属性：
+								&emsp;		border-collapse:collapse;  合并相邻边框
 										
 								from表单：(具体表单练习在<a href="https://github.com/diudiudiu/webpractice/tree/master/HTML%2BCSS%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0">这里</a>)
-									完整的表单分为三个部分，表单元素、提示信息和表单域。
-									label标签：用于绑定一个表单元素（for="id"）
-									H5新增input加属性
-									input type="text"
-									placeholder="提示信息"
-									autofocus	默认获取光标
-									required 必填项
-									accesskey 键盘快捷键获取焦点
+								&emsp;	完整的表单分为三个部分，表单元素、提示信息和表单域。
+								&emsp;	label标签：用于绑定一个表单元素（for="id"）
+								&emsp;	H5新增input加属性
+								&emsp;	input type="text"
+								&emsp;	placeholder="提示信息"
+								&emsp;	autofocus&emsp;默认获取光标
+								&emsp;	required&emsp;必填项
+								&emsp;	accesskey&emsp;键盘快捷键获取焦点
 
-									input type="file"
-									multiple 多选文件
+								&emsp;	input type="file"
+								&emsp;	multiple 多选文件
 								HTML5
-									audio元素支持三种音频格式 Ogg MP3 Wav
-										autoplay 自动播放
-										controls 控制
-										loop 循环播放
-									video元素支持三种视频格式 OGG MPEG 4 WebM
+								&emsp;	audio元素支持三种音频格式 Ogg MP3 Wav
+								&emsp;	&emsp;	autoplay 自动播放
+								&emsp;	&emsp;	controls 控制
+								&emsp;	&emsp;	loop 循环播放
+								&emsp;	video元素支持三种视频格式 OGG MPEG 4 WebM
 
 
 								注意！！！p h1-h6标签内不放块元素。
 								行内块与行内块之间存在缝隙，浮动可解决。
 								CSS：
-									float浮动：
-										可让元素默认转换为inline-block元素(行内元素加float则这个元素可直接设置宽高)浮动元素不会超过父元素padding值。
+									&emsp;float浮动：
+									&emsp;	可让元素默认转换为inline-block元素(行内元素加float则这个元素可直接设置宽高)浮动元素不会超过父元素padding值。
 
-										浮动不是完全的脱离标准流。文字不能绝对的覆盖。
+									&emsp;	浮动不是完全的脱离标准流。文字不能绝对的覆盖。
 
-										多个有边框div在一行可用margin-left或者margin-right:-1px;去除边框紧贴变宽的效果。hover触发边框时，应加上position：relative以此来提升z-index。也可在原盒子附加position：relative。
+									&emsp;	多个有边框div在一行可用margin-left或者margin-right:-1px;去除边框紧贴变宽的效果。hover触发边框时，应加上position：relative以此来提升z-index。也可在原盒子附加position：relative。
 									清除浮动：
 										1.额外标签
 										在浮动的块元素后加个空标签&lt;div style="clear: both;"&gt;&lt;/div&gt;	或&lt;br /&gt;等标签。
@@ -220,27 +220,27 @@
 										3.使用afert伪元素
 										（百度，网易）
 										.clearfix:after{
-											content:"";
-											display:block;
-											height:0;
-											clear:both;
-											visibility:hidden;
+										&emsp;	content:"";
+										&emsp;	display:block;
+										&emsp;	height:0;
+										&emsp;	clear:both;
+										&emsp;	visibility:hidden;
 										}
 										.clearfix{
-											*zoom:1; //IE6-7专有
+										&emsp;&emsp;	*zoom:1; //IE6-7专有
 										}
 										缺点：由于IE6-7不支持：after，使用zoom：1出发hasLayout。
 										4.使用before和afert双伪元素（在父元素上使用）
 										（小米）
 										.clearfix:before，.clearfix:after{
-											content:"";
-											display:table;	//此句触发BFC
+										&emsp;	content:"";
+										&emsp;	display:table;	//此句触发BFC
 										}
 										.clearfix:after{
-											clear:both;
+										&emsp;	clear:both;
 										}
 										.clearfix{
-											*zoom:1; //IE6-7专有
+										&emsp;	*zoom:1; //IE6-7专有
 										}
 										缺点：由于IE6-7不支持：after，使用zoom：1出发hasLayout。
 									定位： 
@@ -248,7 +248,7 @@
 										固定定位和绝对定位可让元素默认转换为inline-block元素(行内元素加float则这个元素可直接设置宽高)。
 										注意！！！要设置宽高
 									z-index:
-										默认为0，数值相同后来居上，只要相对定位，决定定位，固定定位有此属性。
+										默认为0，数值相同后来居上，只有相对定位，决定定位，固定定位有此属性。
 									outline: none; 取消轮廓线input,textarea
 									浏览器默认样式不一样最好自己设定一个border。
 									textarea文本域防止拖拽
@@ -367,7 +367,10 @@
 								js调用getAttribute("your") 获取自定义属性的值
 								  调用setAttribute("your",value) 设置自定义your属性
 								  调用removeAttribute("your") 移除属性
-
+								节点的属性:(可以使用标签--元素.出来,可以使用属性节点.出来,文本节点.点出来)
+							    nodeType:节点的类型:1----标签,2---属性,3---文本
+							    nodeName:节点的名字:标签节点---大写的标签名字,属性节点---小写的属性名字,文本节点----#text
+							    nodeValue:节点的值:标签节点---null,属性节点---属性值,文本节点---文本内容
 							</p>
 						</li>
 						<li>
