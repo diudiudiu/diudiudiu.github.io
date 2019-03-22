@@ -370,6 +370,28 @@
 							</p>
 						</li>
 						<li>
+							<h2>BOM<span class="date"></span></h2>
+							<p class="list"> 
+								浏览器对象
+								location对象 地址栏
+								location.href="http://www.diudiudiu.com";属性
+								location.assign("http://www.diudiudiu.com"); 方法
+								设置跳转的页面
+								
+								location.reload(); 重新加载 刷新
+								location.replace("http://www.diudiudiu.com"); 连接不记录历史记录无法后退
+								
+								window.location.hash 地址栏上 锚链接#号后面的
+								window.location.host 主机名及端口号
+								window.location.hostname 主机名
+								window.location.pathname 文件路径 相对路径端口
+								window.location.port 端口号
+								window.location.protocol 协议
+								window.location.search 搜索的内容 ？后 的内容
+
+							</p>
+						</li>
+						<li>
 							<h2>节点<span class="date"></span></h2>
 							<p class="list"> 
 								节点的属性:(可以使用标签--元素.出来,可以使用属性节点.出来,文本节点.点出来)
@@ -436,8 +458,7 @@
 									a.replaceChild(odiv,getFirstElementChild(a));
 									移除父级元素的子元素
 									a.removeChild(getFirstElementChild(a));
-								事件监听
-									var a=document.getElementById('a');
+								事件监听document.getElementById('a');
 									为元素绑定事件
 									可为同一个元素绑定多个事件
 									a.addEventListener(事件类型，事件函数，布尔（false）);
@@ -474,11 +495,18 @@
 									      element["on"+type]=null;
 									    }
 									  }
-									事件冒泡
+									事件冒泡（从内向外）默认   
+
+									事件捕获（从外向内）
 									阻止事件冒泡 
 									window.event.cancelBubble=true; IE特有的 但谷歌也支持
 									e.stopPropagation();谷歌火狐都支持 IE不支持
+									
 
+									通过e.enventPhase 可以知道当前事件是什么阶段
+									1--->捕获阶段
+									2--->目标阶段
+									3--->冒泡阶段
 							</p>
 						</li>
 						<li>
@@ -574,7 +602,7 @@
 									str.split("x",num) 返回以x切割的num个字符串数组num可省略
 									str.substr(x,y) 返回以x开始的y个字符串 y可省略
 									str.substring(x,y) 返回[x,y)的字符串
-
+									str.map(Number) 把str字符串转换为数字数组
 									substring()是以两个参数中较小一个作为起始位置，较大的参数作为结束位置。
 
 									slice()接收的参数是负数时，会将它字符串的长度与对应的负数相加，结果作为参数，也可理解为倒数。
@@ -645,7 +673,7 @@
 										}
 									}) 排序按function的规则
 									arr.slice(x,y)  返回[x,y)的数组
-									arr.splice(开始的位置，要删除的个数，替换的元素的值) 一般用于删除数组中的元素 或者替换元素，或者插入元素
+									arr.(开始的位置，要删除的个数，替换的元素的值) 一般用于删除数组中的元素 或者替换元素，或者插入元素
 								Object
 								6.基本包装类型
 								本身是基本类型，但是在执行代码的过程中，如果这种类型调用了属性或方法，那么这种类型就不再是基本类型，而是基本包装类型，这个遍历也不是普通变量，而是基本包装类型对象。
