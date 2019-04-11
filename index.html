@@ -749,6 +749,9 @@
 								replace() 方法 用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。
 								var reg = /pattern/flags    // 字面量创建方式
 							    var reg = new RegExp(pattern,flags);    //实例创建方式
+							    reg.test(str);//验证字符串是否匹配
+								匹配中文[\u4e00-\u9fa5]
+								
 							    pattern:正则表达式  
 							    flags:标识(修饰符)
 							    标识主要包括：
@@ -829,7 +832,7 @@
 								等价于context.moveTo(x,y);
 							</p>
 						</li>
-						<li class="">
+						<li>
 							<h2>JS各种宽高的集合<span class="date"></span></h2>
 							<p class="list">								
 								网页可见区域宽： document.body.clientWidth
@@ -850,7 +853,62 @@
 								浏览器被卷去的宽度： window.pageXOffset||document.body.scrollLeft||document.documentElement.scrollLeft;
 							</p>
 						</li>
-						<li class="">
+						<li>
+							<h2>Vue.js<span class="date"></span></h2>
+							<p class="list">
+							&lt;p v-cloak&gt;{{msg}}&lt;/p&gt;
+								v-cloak:能够解决插值表达式闪烁的问题需要在style标签设置[v-cloak]display:none;html标签会转义不会让浏览器解析。
+							&lt;p v-text="msg"&gt;&lt;/p&gt;
+								v-text:默认没有闪烁问题 会覆盖元素中原本的内容。插值表达式不会覆盖只会插入。html标签会转义不会让浏览器解析。
+							&lt;p v-html="msg"&gt;&lt;/p&gt;
+								v-html：覆盖内容 并解析msg中的标签
+							&lt;p v-bind:title="mytitle + '123'"&gt;&lt;/p&gt;
+								v-bind:title简写为:title
+								v-bind: 是Vue中提供用于绑定属性的指令,绑定后会将属性的内容当作JS表达式。
+							&lt;p v-on:click="show"&gt;&lt;/p&gt;
+								v-on:click简写为@click
+								v-on: 是Vue中提供用于绑定事件的指令
+								事件修饰符
+								@click.stop 阻止冒泡
+								@click.prevent 阻止默认行为
+								@click.capture 改为捕获事件
+								@click.self 只有触发当前元素才触发 
+								self 只会组织自己身上的冒泡行为的触发
+								@click.once 只触发一次
+							&lt;input type="text" v-model="msg">
+								v-model可以实现表单和和Model中数据的双向绑定，只能运用在表单元素中
+
+
+
+
+							var vm=new vue({
+								//在vm实例中想要获取data上的数据或者methods中的方法必须通过this调用
+								//vm实例会监听自己data中所有数据的改变，只要数据一发生变化就会自动吧最新数据从data上同步到页面中
+								el:'#app',
+								data:{
+									msg:'123',
+									mytitle:'&lth1>1234567&lt/h1>'
+								},
+								methods:{
+									//这个中定义了当前Vue中所有可用的方法
+									show:function(){
+										alert('a')
+									}
+									//ES6写法
+									show(){
+										alert('a')
+									},
+									lang(){
+									//定时器ID应该设置在data中
+										setInterval( () => {
+											//this指向改变了
+										}，400)
+									}
+								}
+							})
+							</p>
+						</li>
+						<li>
 							<h2>Linux<span class="date"></span></h2>
 							<p class="list">					
 								Linux
