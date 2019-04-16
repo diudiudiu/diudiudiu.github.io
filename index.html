@@ -40,7 +40,7 @@
 					<em style="font-size: 20px;font-weight: bold; color: #F20C40;">前端菜鸟,求个师傅。</em>
 					<br>
 					目前掌握HTML,CSS,JS,Less。<br>
-					正在学习React。<br>
+					正在学习React，Vue。<br>
 					了解微信小程序,JQuery。<br>
 					请写清来意。<br>
 					可划过下方icon扫描二维码。<br>
@@ -274,6 +274,7 @@
 									Number.MAX_VALUE  数字的最大值
 									注意！！！！不要用小数去验证小数，小数存放的精度有问题。
 									isNaN(num) 是数字返回false
+									+num//可把num从string转化为number
 								string
 									字符串的拼接
 									一个是字符串一个是数字 使用+号，则是拼接，不是相加
@@ -389,6 +390,46 @@
 								window.location.port 端口号
 								window.location.protocol 协议
 								window.location.search 搜索的内容 ？后 的内容
+				
+							</p>
+						</li>
+						<li>
+							<h2>JQuery<span class="date"></span></h2>
+							<p class="list"> 
+								$(function(){})约等于window.onload
+								click(function(){})点击事件
+								show(1000) display=block 1000ms
+								slideDown(1000) 从上往下的显示动画
+								fadein(1000) 淡入
+								css(name,value) css样式
+								hide() display=none
+								children() 所有的子代
+								find() 		后代
+								siblings() 兄弟节点 
+								next()下一个兄弟对象
+								parent()父级
+								index() 返回当前元素在所有兄弟元素中的索引
+								eq(n)=:eq(n)//第n个元素
+								第一个是方法 第二个是过滤器
+								过滤选择器
+								//下标为偶数
+								:even
+								//下标为奇数数
+								:odd
+								//第一个元素
+								:first
+								//最后一个元素
+								:last
+								//第n个元素
+								:eq(n)
+								//下标大于n的元素
+								:gt(n)
+								//下标小于n的元素
+								:lt(n)
+
+								mouseover经过其子元素也会触发mouseenter不会 都是鼠标进入事件
+								mouseleave
+								text=innerText
 				
 							</p>
 						</li>
@@ -877,17 +918,109 @@
 								@click.once 只触发一次
 							&lt;input type="text" v-model="msg">
 								v-model可以实现表单和和Model中数据的双向绑定，只能运用在表单元素中
+							&lt;p v-for="(val,key) in user" &gt; 值是{{ val  }}---键是：{{ key }}&lt;/p&gt;
+								v-for循环时候，key属性只能用number或string，key在使用的时候，必须使用v-bind属性绑定指定key的值
+							&lt;p v-if="flag" &gt;asdasd&lt;/p&gt;
+							&lt;p v-show="flag" &gt;asdasd&lt;/p&gt;
+								v-if：当隐藏的时候 是类似注释一样,移除元素，有较高的切换性能消耗，如果元素涉及到频繁的切换，最好不要使用。
+								v-show:隐藏是 display：none，有初较高的初始渲染消耗，如果元素可能永远不被显示给用户看到，则不要使用该属性。
+							在Vue中自定义属性要以v-开头
+							使用Vue.directive()定义全局指令
+							参数1指令名称，定义的时候不需要加v-在调用的时候加上，
+							参数二：是一个对象，身上有一些指令相关的函数，这些函数可以在特定的阶段执行相关的操作。
+
+							Vue.directive('focus',{
+								//在每个函数中 第一个参数永远是el，表示被绑定的元素，是个原生的JS对象。
+								//binding对象  
+								//属性: name 指令名字
+								//属性: value 绑定指令计算后的值
+								//属性: expression 绑定指令后的字符串表达式
+
+								bind:function(el){
+									//每当指令绑定到元素上时候，会立即执行函数，只执行一次
+									//元素刚绑定的时候还没有插入DOM中去，这时调用focus无效果
+									//el.focus();
+									//样式相关的写在bind中
+								},
+								inserted:function(el){
+									//元素插入DOM中的时候，会执行该函数，可执行多次
+									el.focus();
+									//js行为写在inserted。
+								},
+								updated:function(){
+									//VNode更新的时候执行，可执行多次
+								}
+							})
+							简写
+							//当只想在bind和update时候操作可进行简写
+							Vue.directive('color',function(el,binding){
+								el.style.color=binding.value;
+							})
+							过滤器
+							定义：
+							Vue.filter('过滤器的名称'，function(){})
+							调用
+							{{ name | 过滤器的名称 }}
+							//当私有过滤器和全局过滤器重名，那么采用就近原则，调用私有过滤器。
+
+							vue实现数据请求 vue-resource（get post jsonp）  (axios也可以)
+							Vue.http.options.root='http://vue.studyit.io/';
+							//如果我们通过全局配置了，请求的数据接口 根域名，则在每次单独发起http请求的时候，请求的url路径，
+							应当以相对路径开头，前面不能带/，否则不会启用根路径做拼接
+							-----动画------
+							transition元素是Vue官方提供的
+							将动画的dom节点放在transition标签中
+							&lt;transition>
+								&lt;h3 v-if="flag">这是一个H3&lt;/h3>
+								
+							&lt;/transition>
+							style标签中设置：
+							/*两组样式控制 transition 内部动画*/
+							/*v-enter是进入起始状态*/
+							/*v-leave-to 离开之后 动画结束状态*/
+							.v-enter,
+							.v-leave-to{
+								opacity: 0;
+								transform: translateX(150px); 
+							}
+							/*v-enter-active入场动画时间段*/
+							/*v-leave-active离场动画时间段*/
+							.v-enter-active,
+							.v-leave-active{
+								transition: all 0.4s ease;
+							}
+
+							也可自定义动画，在transition元素 设置 name属性，然后 在style标签中名字为.my-代替.v-
+
+							使用第三方animate.css
+							&lt;transition enter-active-class="animated bounceIn" leave-active-class="animated bounceOut" :duration="{enter:200,leave:400}">
+								&lt;h3 v-if="flag">这是一个H3&lt;/h3>
+								
+							&lt;/transition>
+							bounceIn,bounceOut可以选择不同的效果
+							animated 可放在元素身上
+							&lt;h3 v-if="flag" class="animated">这是一个H3&lt;/h3>
+							duration 设置入场时间离场时间
+
+							动画钩子函数
 
 
 
 
+
+ 
 							var vm=new vue({
 								//在vm实例中想要获取data上的数据或者methods中的方法必须通过this调用
 								//vm实例会监听自己data中所有数据的改变，只要数据一发生变化就会自动吧最新数据从data上同步到页面中
 								el:'#app',
 								data:{
 									msg:'123',
-									mytitle:'&lth1>1234567&lt/h1>'
+									mytitle:'&lth1>1234567&lt/h1>',
+									user:{
+										id:1,
+										name: 'tony',
+										gender:'男'
+									}
 								},
 								methods:{
 									//这个中定义了当前Vue中所有可用的方法
@@ -903,6 +1036,38 @@
 										setInterval( () => {
 											//this指向改变了
 										}，400)
+									}
+								},
+								filters: {
+									//私有过滤器
+									dateFormat：function (dateStr,pattern="yyyy-mm-dd") {
+										var dt=new Date(dateStr);
+										var y=dt.getFullYear();
+										var m=(dt.getMonth()+1).toString().padStart(2,'0');
+										var d=dt.getDate().toString().padStart(2,'0');
+
+										if (pattern&&pattern.toLowerCase()==='yyyy-mm-dd') {
+											// return y+ '-'+m+'-'+d;
+											return `${y}-${m}-${d}`;
+
+										}else{
+											var hh=dt.getHours().toString().padStart(2,'0');
+											var mm=dt.getMinutes().toString().padStart(2,'0');
+											var ss=dt.getSeconds().toString().padStart(2,'0');
+											return `${y}-${m}-${d}-${hh}-${mm}-${ss}`;
+											
+											
+										}
+										// 字符串模版
+										// return `${y}-${m}-${d}`;
+									}
+								}，
+								directives:{
+									//自定义私有指令
+									'focus':{
+										bind:function(el,binding){
+ 
+										}
 									}
 								}
 							})
