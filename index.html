@@ -970,6 +970,7 @@
 							-----动画------
 							transition元素是Vue官方提供的
 							将动画的dom节点放在transition标签中
+
 							&lt;transition>
 								&lt;h3 v-if="flag">这是一个H3&lt;/h3>
 								
@@ -990,7 +991,25 @@
 								transition: all 0.4s ease;
 							}
 
+
+
+							------transitionGroup------
+							在实现列表过度的时候，如果需要过度的元素是通过v-for循环渲染出来的，
+							不能使用 transition 包裹，需要使用transitionGroup
+							&lt;transition-group appear>
+								&lt;h3 v-if="flag">这是一个H3&lt;/h3>
+								
+							&lt;/transition-group>
+							.v-move 和 .v-leave-active 配合使用，
+							能够实现列表后续元素渐渐的上飘。
 							也可自定义动画，在transition元素 设置 name属性，然后 在style标签中名字为.my-代替.v-
+
+							
+							appear 属性加上时，可实现页面刚展示入场效果
+							tag属性可为transitionGroup渲染时候设置标签种类默认为span标签
+
+
+
 
 							使用第三方animate.css
 							&lt;transition enter-active-class="animated bounceIn" leave-active-class="animated bounceOut" :duration="{enter:200,leave:400}">
@@ -1005,8 +1024,34 @@
 							动画钩子函数
 
 
-
-
+							&lt;transition
+								@before-enter="beforeEnter"
+					      		@enter="enter"
+					      		@after-enter="afterEnter">
+								&lt;div class="ball" v-show="flag">&lt;/div>
+							&lt;/transition>
+							methods:{
+								// 动画钩子函数的第一个参数 表示要执行的DOM元素 是个原生js对象
+								beforeEnter(el){
+									// 表示动画入场之前，可以在该函数中 设置 动画开始之前的起始样式
+									el.style.transform="translate(0,0)";
+								},
+								enter(el,done){
+									// 表示动画开始之后的样式，可以在该函数中设置结束状态。
+									el.offsetWidth;
+									// 这句话无作用，但是不写动画出不来
+									el.style.transform="translate(150px,450px)";
+									el.style.transition="all 2s ease";
+									done(); 
+									// 是afterEnter函数引用
+								},
+								afterEnter(el){
+									// 动画完成之后执行该函数。
+									// console.log('ok');
+									this.flag=!this.flag;
+									
+								}
+							}
 
  
 							var vm=new vue({
@@ -1071,6 +1116,47 @@
 									}
 								}
 							})
+							</p>
+						</li>
+						<li>
+							<h2>Vue.js组件<span class="date"></span></h2>
+							<p class="list">								
+								&lt;my-com1>&lt;/my-com1>
+								// 全局组件！！！！！！！！
+								//使用Vue.extend 来创建全局的Vue组件
+								var com1=Vue.extend({
+									template:'<h3>Vue.extend组件化</h3>',
+									// 通过 template 属性，指定了组件要展示的HTML结构
+								});
+								// 使用 Vue.component('组件的名称',创建出来的组件模版对象);
+								Vue.component('myCom1',com1);
+								Vue.component('myCom3',{
+									template:'<h3>字面量组件化</h3>'
+									// 通过 template 属性，指定了组件要展示的HTML结构
+								});
+
+
+
+								&lt;template id="tmp1">
+									&lt;div>
+										&lt;h2>外部定义结构方便，代码提示&lt;/h2>
+									&lt;/div>
+								&lt;/template>
+								Vue.component('myCom4',{
+									template:'#tmp1',
+									// 通过id
+								});
+								&lt;my-com5>&lt;/my-com5>
+
+								Vue.component('myCom5',{
+									template:'&lt;h3>{{msg}}&lt;/h3>',
+									// 通过id
+									data:function(){
+										return{
+											msg:'aaaaa',
+										}
+									}
+								});
 							</p>
 						</li>
 						<li>
