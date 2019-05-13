@@ -894,6 +894,64 @@
 								浏览器被卷去的宽度： window.pageXOffset||document.body.scrollLeft||document.documentElement.scrollLeft;
 							</p>
 						</li>
+						
+						<li>
+							<h2>AJAX<span class="date"></span></h2>
+							<p class="list">	
+								发送请求							
+								var xhr = new XMLHttpRequest() 
+								状态0 初始化请求代理对象
+								xhr.open('POST','./time.php') 	//设置请求行
+								状态1 建立一个与服务端特定的端口的连接
+								xhr.setResquestHeader('Foo','Bar')//设置一个请求头
+								一旦请求体是urlencoded格式的内容，一定要设置请求头中content-Type application/xwww-form-urlencoded
+								xhr.setResquestHeader('content-Type','application/xwww-form-urlencoded')//设置一个请求头
+								GET请求 send函数中一般传入null
+								POST 请求 传入 数据 可写为
+								xhr.send('key1='+value1+'&key2='+value2)//以 urlencoded格式设置请求体
+
+								xhr.send('key1=value1&key2=value2')//以 urlencoded格式设置请求体
+								接收响应
+								xhr.addEventListener('readystatechange',function(){
+									switch(this.readyState){
+										case 2:
+											状态2 已经接受到了响应报文的响应头
+											console.log(this.getAllResponseHeaders())
+											this.getAllResponseHeaders().split('\n')换行分割
+											this.getResponseHeader('date') 获取指定键
+											console.log(this.readyState)
+											break;
+										case 3:
+											状态3 正在下载响应报文的响应体，有可能不完整，也有可能为空
+											console.log(this.readyState)	
+											break;
+										case 4:
+											状态4 响应体下载完成
+											console.log(this.responseText)
+											console.log(this.readyState)
+											break;
+									}
+								})
+								xhr.onload等价于 this.readyState=4
+								是html5中XMLHttpResquest version 2.0 提供的
+								xhr.onreadystatechange=function(){
+									这个事件不是只在响应时出发 状态改变就触发 
+									if（this.readyState!==4）return
+									console.log(this.responseText)
+									this.responseText响应体
+									状态3 初始化请求代理对象
+									状态4 初始化请求代理对象
+
+								}
+
+								同步与异步
+								xhr.open('POST','./time.php'，async)
+								open方法第三个参数是async 可以传入一个布尔值，默认为true
+								同步表示同一时间只能工作一件事情，执行Ajax时会有堵塞
+								异步表示同一时间能工作多件事情
+								区别在于send方法会不会出现等待状况
+							</p>
+						</li>
 						<li>
 							<h2>Vue.js<span class="date"></span></h2>
 							<p class="list">
@@ -1157,6 +1215,18 @@
 										}
 									}
 								});
+							</p>
+						</li>
+						<li>
+							<h2>关于JS冷知识<span class="date"></span></h2>
+							<p class="list">								
+								1.html标签定义了id，就可以在js中（浏览器环境）直接通过id引用这个dom元素。
+								原因：如果dom元素的id名称不和js内置属性或全局变量重名的话，
+								该名称自动成为window对象的属性，所以可以直接用来操作dom。
+								（未形成标准，最好用规范写法）
+								2.JS中的计时器
+									console.time('abc') 传入一个字符串 为计时器的名字
+									console.timeEnd('abc') 结束定时器
 							</p>
 						</li>
 						<li>
