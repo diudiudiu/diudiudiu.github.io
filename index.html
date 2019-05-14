@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>diuidiudiu-blog</title>
+	<title>一个前端小白的博客-diuidiudiu</title>
 
 	<meta name="description" content="前端菜鸟diudiudiu的博客，入门知识点及个人笔记。" />
 	<meta name="Keywords" content="diudiudiu，github，前端，blog，博客。" />
@@ -430,7 +430,46 @@
 								mouseover经过其子元素也会触发mouseenter不会 都是鼠标进入事件
 								mouseleave
 								text=innerText
-				
+
+
+								JQuery中的Ajax
+								$.ajax({
+									url : './time.php',
+									type : 'post',    //method 请求方法
+									data : {id:1,name:'aaa'},  //用于提交到服务端的参数 如果是GET请求就通过URL传入如果是POST就用请求体传递
+									dataType : 'json',用于设置响应体的类型
+									beforeSend:function(xhr){
+										在所有发送请求操作之前
+									},
+									success : function(res){
+										//res=>会自动根据服务端响应的content-type自动转换为对象
+										若服务端未指定content-type 但返回类型却不是html 那么可设置参数dataType 
+										一旦设置dataType 就会忽略服务端的content-type
+										只有请求成功状态码为200才会执行这个函数
+									},
+									error:function(xhr){
+										请求不正常执行该函数 状态码不为200
+									},
+									complete:function (xhr){
+										请求完成 执行该函数 无论成功或失败
+									}
+								})
+
+								$.get('./time.php',{id:1},function(res){
+
+								})
+								$.getJSON('./time.php',{id:1},function(res){
+
+								})
+								全局的ajax 开始和结束函数
+								$(document).ajaxStart(function(){
+									只要有Ajax请求开始 就执行
+								})
+								$(document).ajaxStop(function(){
+									只要有Ajax请求结束 就执行
+								})
+								加载局部 页面
+								$('#main').load(url+'#main >*')
 							</p>
 						</li>
 						<li>
@@ -894,7 +933,12 @@
 								浏览器被卷去的宽度： window.pageXOffset||document.body.scrollLeft||document.documentElement.scrollLeft;
 							</p>
 						</li>
-						
+						<li>
+							<h2>库<span class="date"></span></h2>
+							<p class="list">								
+								Nprogress加载进度条库
+							</p>
+						</li>
 						<li>
 							<h2>AJAX<span class="date"></span></h2>
 							<p class="list">	
@@ -909,10 +953,11 @@
 								GET请求 send函数中一般传入null
 								POST 请求 传入 数据 可写为
 								xhr.send('key1='+value1+'&key2='+value2)//以 urlencoded格式设置请求体
-
 								xhr.send('key1=value1&key2=value2')//以 urlencoded格式设置请求体
 								接收响应
 								xhr.addEventListener('readystatechange',function(){
+									this.response 获取到的结果会根据this.responseType的变化而变化
+									this.responseText 永远获取的是字符串形式的响应体
 									switch(this.readyState){
 										case 2:
 											状态2 已经接受到了响应报文的响应头
@@ -932,6 +977,7 @@
 											break;
 									}
 								})
+
 								xhr.onload等价于 this.readyState=4
 								是html5中XMLHttpResquest version 2.0 提供的
 								xhr.onreadystatechange=function(){
@@ -950,6 +996,49 @@
 								同步表示同一时间只能工作一件事情，执行Ajax时会有堵塞
 								异步表示同一时间能工作多件事情
 								区别在于send方法会不会出现等待状况
+
+								响应数据格式
+								服务端应该 设置一个合理的Content-Type
+								1.XML(out了)
+								this.responseXML 专门用于获取服务器端返回的XML数据，操作方式就是通过DOM的方式操作
+								但是需要服务器端响应头中的Content-Type 必须是 application/xml
+								2.JSON
+								使用JSON.parse进行转换 
+								
+								模版引擎
+								art-template
+								1.选择一个模版引擎
+								2.下载模版引擎JS文件
+								3.引入到页面中
+								4.准备一个模版
+								5.准备一个数据
+								6.通过模版引擎的JS提供的一个函数将模版和数据整合得到渲染结果HTML
+								7.将渲染结构的HTML 设置到默认元素的innerHTML中
+								模版最好写在script标签中
+								例如：
+								&lt;script id="tmpl" type="text/x-art-template">
+									{{each comments}}
+									each 内部 $value 拿到的是当前被遍历的那个元素
+									$index拿到的是下标
+									&lt;tr>
+										&lt;td>{{}}&lt;/td>
+										&lt;td>{{}}&lt;/td>
+										&lt;td>{{}}&lt;/td>
+									&lt;/tr>
+									{{/each}}
+								&lt;/script>
+								type="text/x-模版名
+								var context={模版设置的名字: 请求的数据}
+								var html=template('tmpl'(script标签的ID),context)
+
+								跨域
+								同源 是指域名，协议，端口完全相同，
+								只有同源的地址才可以相互通过AJAX的方式请求
+
+								不同源的地址默认不能发送AJAX的方式请求（请求已经发出，结果无法接收）
+								不同源的地址之间的请求 称之为跨域
+
+								兼容 ie5/6 var xhr = window.XMLRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP')
 							</p>
 						</li>
 						<li>
@@ -1227,6 +1316,11 @@
 								2.JS中的计时器
 									console.time('abc') 传入一个字符串 为计时器的名字
 									console.timeEnd('abc') 结束定时器
+								3.浏览器console
+									打印对象时，内容是折叠的，若后续内容改变，当点开的折叠内容，获取的是改变后的内容。
+									何时点开折叠内容 ，获取的就是当时的值
+								4.link标签：
+								真正的意义链入一个文档，通过rel属性 申明链入的文档与当前文档之间的关系。并不是只为了链入CSS文件
 							</p>
 						</li>
 						<li>
