@@ -145,6 +145,67 @@
 							</p>
 						</li>
 						<li>
+							<h2>Grid布局与Flexbox<span class="date"></span></h2>
+							<p class="list">	
+								Flexbox 是一维布局，只能在一条直线上放置内容区块
+								Grid 是一个二维布局，根据设计需求将内容区块放置到任何地方
+								兼容IE11 
+								当display 设置为 grid 那么column float clear vertical-align 属性会无效
+								引入的单位 
+								fr:剩余空间分配数。用于在一系列长度值中分配剩余空间，如果多个指定了多个部分，则剩下的空间根据各自的数字按比例分配
+								gr(W3C未认可)：网格数
+								
+								网格容器 (Grid Container) 设置display:grid 父容器
+								网格项 (Grid Item)	父容器内的子级 是HTML中能够找到的DOM元素
+								网格线 (Grid Line) 组成网格项的分界线
+								网格轨道 (Grid Track) 两个相邻的网格线之间
+								网格单元 (Grid Cell) 两个相邻的列网格线和两个相邻的行网格线组成的是网格单元 
+								网格区域 (Grid Area) 四个网格线包围的总空间（含一个或多个网格单元） 
+								html代码
+								&lt;div class="container">
+									&lt;div class="item1">&lt;/div>
+									&lt;div class="item2">&lt;/div>
+									&lt;div class="item3">&lt;/div>
+									&lt;div class="item4">&lt;/div>
+									&lt;div class="item5">&lt;/div>
+									&lt;div class="item6">&lt;/div>
+									&lt;div class="item7">&lt;/div>
+									&lt;div class="item8">&lt;/div>
+									&lt;div class="item9">&lt;/div>
+								&lt;/div>
+								css属性:
+								.container{
+									grid-template行列轨道大小
+									grid-template-columns列/grid-template-rows行/grid-template-areas网格区域
+									属性值 
+									1.轨道大小(track-size):可以使用css长度(px,em)百分比或fr
+									grid-template-columns:40px 50px auto 50px 40px;
+										这个auto为剩下的宽度，当出现fr单位 auto为最小宽度即内容宽度
+									grid-template-rows:25% 100px auto;
+									若行不够那么会自动添加 自动增加的高度为auto
+									盒子若设置了高度 那么增加的行会影响到之前设置的高度
+									例如 
+									height:1500px;
+									grid-template-rows:1fr
+									那么自动增加的是行高度为auto第一行为1500-增加的行数*auto的高度
+									---------------------------------------------------
+									2.网格线名字(line-name):可以选择任何名字
+									grid-template-columns:[first] 40px [line2 second] 50px [line3] auto [col4-statr] 50px [five] 40px [end];[]中可以设置多个名字
+									grid-template-rows:[row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
+
+									grid-template-areas:"header header header header header "
+																			"main main main . maintwo"
+																			"footer footer footer footer footer"
+									属性值：
+									1.grid-area-name 使用grid-area属性设置的网格
+									2.‘.’ 点号代表一个空网格单元
+									3.none没有定义网格区域
+								}
+								
+
+							</p>
+						</li>
+						<li>
 							<h2>img底部空白间隙<span class="date"></span></h2>
 							<p class="list">	
 								原因：img的默认的垂直对齐方式vertical-align的默认值是baseline，以X字母的下方为基准。
@@ -167,7 +228,7 @@
 									}				
 							</p>
 						</li>
-						<li class="">
+						<li>
 							<h2>HTML+CSS知识点<span class="date"></span></h2>
 							<p class="list">
 								
@@ -432,7 +493,7 @@
 								text=innerText
 
 
-								JQuery中的Ajax
+								JQuery中的Ajax 含JSONP 但JSONP和Ajax无关
 								$.ajax({
 									url : './time.php',
 									type : 'post',    //method 请求方法
@@ -470,6 +531,7 @@
 								})
 								加载局部 页面
 								$('#main').load(url+'#main >*')
+
 							</p>
 						</li>
 						<li>
@@ -934,9 +996,12 @@
 							</p>
 						</li>
 						<li>
-							<h2>库<span class="date"></span></h2>
+							<h2>库&工具<span class="date"></span></h2>
 							<p class="list">								
 								Nprogress加载进度条库
+
+								postman 接口的验证工具
+
 							</p>
 						</li>
 						<li>
@@ -1034,11 +1099,50 @@
 								跨域
 								同源 是指域名，协议，端口完全相同，
 								只有同源的地址才可以相互通过AJAX的方式请求
-
 								不同源的地址默认不能发送AJAX的方式请求（请求已经发出，结果无法接收）
 								不同源的地址之间的请求 称之为跨域
+								跨域借用script标签
+								1.可以发送不同源地址之间的请求
+								2.无法拿到结果
+								3.借助于能够作为JS执行
+								4.需要服务端返回的是JS语句 header(需要改写为js)
+								5.script中有执行函数
+
+								AJAX跨域 CORS 跨域资源共享
+								Cross Origin Resource Share
+								在服务端添加 header('Access-Control-Allow-Origin: *')
 
 								兼容 ie5/6 var xhr = window.XMLRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP')
+							</p>
+						</li>
+						<li>
+							<h2>jsonp<span class="date"></span></h2>
+							<p class="list">								
+								jsonp通过script标签请求一个服务端文件 
+								这个文件返回的结果是一段JS 
+								作用是调用我们事先定义好的一个函数
+								从而将服务端想要给客户端发过去的数据发送给客户端
+								function jsonp(url , params , callback){
+									var funcName='jsonp' + Date.now() + Math.random().toString().substr(2,5)
+						
+									if(typeof params === 'object' ){
+										var tempArr=[]
+										for(var key in params){
+											var value =params[key]
+											tempArr.push(key +'='+value)
+										}
+										params=tempArr.join('&')
+									}
+									var script =document.createElement('script')
+									script.src = url + '?' +params + '&callback='+funcName
+									document.body.appendChild(script);
+									window[funcName]=function(data){
+										callback(data)
+										delete window[funcName]
+										document.body.removeChild(script);
+						
+									}
+								} 
 							</p>
 						</li>
 						<li>
