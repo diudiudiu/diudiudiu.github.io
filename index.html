@@ -176,6 +176,7 @@
 								css属性:
 								.container{
 									grid-template行列轨道大小
+									
 									grid-template-columns列/grid-template-rows行/grid-template-areas网格区域
 									属性值 
 									1.轨道大小(track-size):可以使用css长度(px,em)百分比或fr
@@ -195,16 +196,93 @@
 
 									grid-template-areas:"header header header header header "
 																			"main main main . maintwo"
-																			"footer footer footer footer footer"
+																			"footer footer footer footer footer";
+									第一行为header
+									第二行 前三块为main 第四块为空 第五块为maintwo
+									第三行为footer
+									当定义了区域后 每一条网格线都会有名字 区域名字-start 区域名字-end
+									每一行用双引号括起来
 									属性值：
 									1.grid-area-name 使用grid-area属性设置的网格
 									2.‘.’ 点号代表一个空网格单元
 									3.none没有定义网格区域
+
+									简写
+									grid-template：
+									[row1-start] "header header header" 25px [row1-end]
+									[row2-start] "footer footer footer" 25px [row2-end] / auto 50px auto;
+									等同于
+									grid-template-columns:auto 50 auto;
+									grid-template-rows:[row1-start] 25px [row1-end row2-start] 25px [row2-end];
+									grid-template-areas:"header header header" 
+																			"footer footer footer" ;
+
+									---------------------------------------------------										
+									grid-column-gap/grid-row-gap
+									grid-column-gap：10px;
+									简写grid-gap:55px 50px; row/column
+									gap:55px 50px;
+									一个数字就都为 这一个值
+									网格线的大小 网格的间距
+									---------------------------------------------------
+									对齐方式
+									justify横轴
+									justify-items:网格容器沿着横轴内的对齐方式
+									align纵轴
+									align-items:网格容器沿着纵轴内的对齐方式
+										start 内容与网格区域左/上侧对齐
+										end 	内容与网格区域右/下侧对齐
+										center内容与网格区域居中对齐
+										stretch 默认值 占据整个区域空间 
+									简写 palce-item：纵向 横向
+													一个值就都为 这一个
+									---------------------------------------------------
+									justify-content:网格容器内的网格沿着横轴内的对齐方式
+									align-content:网格容器内的网格沿着纵轴内的对齐方式
+										start 内容与网格区域左/上侧对齐
+										end 	内容与网格区域右/下侧对齐
+										center内容与网格区域居中对齐
+										stretch 调整grid item 的大小 让宽度填充整个网格容器
+										space-around： 在grid item 之间设置均等宽度的空白间隙，其外边缘间隙的大小为中间空白间隙宽度的一半
+										space-between: 在grid item 之间设置均等宽度的空白间隙，外边缘无间隙
+										space-evenly：在grid item 之间设置均等宽度的空白间隙，包括外边缘
+										start 与 stretch区别 若宽度设置为auto  start 为最小宽度  stretch为最大宽度
+									简写place-content :start end; 纵轴 横轴
+									---------------------------------------------------
+									grid-auto:
+									grid-auto-columns / grid-auto-rows 
+									指定自动生成的网格轨道（隐式网格轨道）的大小
+									隐式网格轨道在显式的定位超出了指定的网格范围的行或列时被创建
+									例如 设置两行两列 把一个网格项目放置到第五列 那么创建的第三列第四列就是隐式网格轨道
+									grid-auto-flow 控制自动填充算法的工作方式
+										属性值：
+										row: 依次填充每行，根据需要添加的新行
+										column 依次填充每列，根据需要添加的新行
+										dense 如果后面出现较小的 grid item 则尝试在网格中填充空洞
+								---------------------------------------------------
+								网格线划分区域
+									grid-column-start:2;
+									grid-column-end:4;
+									列从第二条线到第四条线
+									grid-row-start:2;
+									grid-row-end:span 2;
+									span表示跨越几条线
+									负数表示倒数
+									如果没有声明grid-column-end
+									grid-row-end默认跨越一个轨道
+									网格项可以相互重叠可以用z-index来控制
+									简写
+									grid-column:2 / 4;
+									grid-row:2 / span2;
+									grid-area:row1-start / 2 / 3 /five;
+									行列
+									grid-area：区域名字
 								}
 								
 
 							</p>
 						</li>
+						
 						<li>
 							<h2>img底部空白间隙<span class="date"></span></h2>
 							<p class="list">	
@@ -1408,6 +1486,35 @@
 										}
 									}
 								});
+							</p>
+						</li>
+						<li>
+							<h2>Vue生命周期<span class="date"></span></h2>
+							<p class="list">
+								Vue共八个声明周期								
+								new Vue()=>Init Events&Lifecycle(实例初始化)
+								①==beforeCreate在实例初始化之后，数据观测 和 事件配置之前被调用==>Init injections & reactivity 进行事件初始化，数据观测
+								②==created在实例创建完成后被立即调用。在这一步实例完成以下配置：数据观测(data observer),属性和方法的运算，watch/event事件回调==>判断对象是否有el选项
+								if(没有){
+										停止编译，停止生命周期，直到该vue实例上调用vm.$mount(el)
+								}else{
+									判断是否有template参数，该参数有无对生命周期无影响
+									if(有template){
+										将其作为模版编译成render函数
+									}
+									else{
+										将外部HTML作为模版编译
+									}
+								}
+								★★模版优先级★★
+								★★render函数选项>template选项>outer HTML★★
+								③==beforeMount在挂载开始之前被调用：相关的render函数首次被调用。此处还未能获取DOM。该钩子在服务器端渲染期间不被调用==>Create vm.$el and replace 'el'with it 给vue实例对象添加$el成员，并且替换掉挂载的DOM元素
+								④==mounted el被新创建vm.$el替换，并挂载到实例上去之后调用该钩子。该钩子服务器端渲染期间不被调用==>Mounted=>when data changes
+								⑤==beforeUpdata数据发生在虚拟DOM打补丁之前。该钩子在该钩子服务器端渲染期间不被调用，因为只有初次渲染会在服务端进行==>Virtual DOM re-render and patch 当vue发现data中的数据发生了改变，就会触发对应组件的重新渲染打补丁
+								⑥==updated由于数据更改导致的虚拟DOM重新渲染和打补丁，在这之后会调用该钩子。该钩子在该钩子服务器端渲染期间不被调用==>when vm.$destroy() is called 当显示调用destory()函数销毁组件或关闭页面，组件开始执行销毁程序。
+								⑦==beforeDestroy实例销毁之前调用，在这一步实例仍然完全可用==>Teardown watchers,child components and event listeners 解绑实例指示的所有东西包括监听器，实例，事件。
+								⑧==destoryed Vue实例销毁后调用。调用后，Vue实例指示的所有东西都会解绑，所有的事件监听器会被移除，所有的子实例也会被销毁。该钩子在该钩子服务器端渲染期间不被调用。==>Destoryed
+
 							</p>
 						</li>
 						<li>
