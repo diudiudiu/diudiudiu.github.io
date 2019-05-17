@@ -141,13 +141,71 @@
 								../../ ：代表文件所在的父级目录的父级目录。
 								......以此类推。
 								个人理解为../表示返回上级目录，/表示进入某文件。
-								绝对路径：网络上从hhtps：//开始写路径，本地从磁盘位置开始写。
+								绝对路径：网络上从https：//开始写路径，本地从磁盘位置开始写。
+							</p>
+						</li>
+						<li>
+							<h2>语义化标签<span class="date"></span></h2>
+							<p class="list">								
+							1.语义化标签的作用：
+								1.1从开发角度考虑是提高代码的可读性可维护性
+								1.2 网站的发布者：SEO
+							2.语义化标签兼容问题
+								2.1 IE9以下不支持H5标签（大部分CSS3属性，一些H5的API）
+								2.2 IE9以下不认识，把这些标签当作行内元素去看待
+								2.3 语义化标签需要动态创建 document.createElement('header') 同时设置块元素
+							兼容插件 <a href="#html5shiv">html5shiv.js</a>
 							</p>
 						</li>
 						<li>
 							<h2>Grid布局与Flexbox<span class="date"></span></h2>
 							<p class="list">	
 								Flexbox 是一维布局，只能在一条直线上放置内容区块
+								兼容IE10
+								display: -webkit-flex; /* Safari */
+								display: flex;
+								Flex容器 设置display: flex;
+								Flex项目（flex item） 父容器内的子级
+								水平的主轴（main axis）
+								垂直的交叉轴（cross axis）
+								单个项目占据的主轴空间叫做main size
+								单个项目占据的交叉轴空间叫做cross size
+
+								父容器属性
+								flex-direction 主轴的方向
+									row（默认值）：主轴为水平方向，起点在左端。
+									row-reverse：主轴为水平方向，起点在右端。
+									column：主轴为垂直方向，起点在上沿。
+									column-reverse：主轴为垂直方向，起点在下沿。
+								---------------------------------------------------
+								flex-wrap 如果一条轴线排不下，如何换行
+									nowrap（默认）：不换行。
+									wrap：换行，第一行在上方。
+									wrap-reverse：换行，第一行在下方。
+								---------------------------------------------------
+								justify-content 主轴上的对齐方式。
+									flex-start（默认值）：左对齐
+									flex-end：右对齐
+									center： 居中
+									space-between：两端对齐，项目之间的间隔都相等。
+									space-around：项目之间的间隔比项目与边框的间隔大一倍。
+								---------------------------------------------------
+								align-items 交叉轴上对齐方式。
+									flex-start：交叉轴的起点对齐。
+									flex-end：交叉轴的终点对齐。
+									center：交叉轴的中点对齐。
+									baseline: 项目的第一行文字的基线对齐。
+									stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+								---------------------------------------------------
+								align-content 多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用
+									lex-start：与交叉轴的起点对齐。
+									flex-end：与交叉轴的终点对齐。
+									center：与交叉轴的中点对齐。
+									space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
+									space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+									stretch（默认值）：轴线占满整个交叉轴。
+								---------------------------------------------------
+								
 								Grid 是一个二维布局，根据设计需求将内容区块放置到任何地方
 								兼容IE11 
 								当display 设置为 grid 那么column float clear vertical-align 属性会无效
@@ -1080,6 +1138,16 @@
 
 								postman 接口的验证工具
 
+								fullpage.js JQuery全屏切换的插件
+
+								<span id="html5shiv">html5shiv.js</span> h5兼容插件 必须引入在头部（在页面结构之前）
+								需要优化处理：条件注释
+								固定语法 lt小于 gt 大于lte小于等于 gte大于等于
+								&lt;!--[if lt IE9>
+								&lt;script>&lt;/script>
+								&lt;[endif]-->>
+
+								stellar.js JQuery视察滚动效果插件(data-stellar-background-ratio="0.5" 按正常滚动速率的0.5倍滚动)
 							</p>
 						</li>
 						<li>
@@ -1509,7 +1577,7 @@
 								★★模版优先级★★
 								★★render函数选项>template选项>outer HTML★★
 								③==beforeMount在挂载开始之前被调用：相关的render函数首次被调用。此处还未能获取DOM。该钩子在服务器端渲染期间不被调用==>Create vm.$el and replace 'el'with it 给vue实例对象添加$el成员，并且替换掉挂载的DOM元素
-								④==mounted el被新创建vm.$el替换，并挂载到实例上去之后调用该钩子。该钩子服务器端渲染期间不被调用==>Mounted=>when data changes
+								④==mounted el被新创建vm.$el替换，并挂载到实例上去之后调用该钩子。该钩子服务器端渲染期间不被调用==>Mounted=>when data changes 
 								⑤==beforeUpdata数据发生在虚拟DOM打补丁之前。该钩子在该钩子服务器端渲染期间不被调用，因为只有初次渲染会在服务端进行==>Virtual DOM re-render and patch 当vue发现data中的数据发生了改变，就会触发对应组件的重新渲染打补丁
 								⑥==updated由于数据更改导致的虚拟DOM重新渲染和打补丁，在这之后会调用该钩子。该钩子在该钩子服务器端渲染期间不被调用==>when vm.$destroy() is called 当显示调用destory()函数销毁组件或关闭页面，组件开始执行销毁程序。
 								⑦==beforeDestroy实例销毁之前调用，在这一步实例仍然完全可用==>Teardown watchers,child components and event listeners 解绑实例指示的所有东西包括监听器，实例，事件。
@@ -1521,9 +1589,9 @@
 							<h2>关于JS冷知识<span class="date"></span></h2>
 							<p class="list">								
 								1.html标签定义了id，就可以在js中（浏览器环境）直接通过id引用这个dom元素。
-								原因：如果dom元素的id名称不和js内置属性或全局变量重名的话，
-								该名称自动成为window对象的属性，所以可以直接用来操作dom。
-								（未形成标准，最好用规范写法）
+									原因：如果dom元素的id名称不和js内置属性或全局变量重名的话，
+									该名称自动成为window对象的属性，所以可以直接用来操作dom。
+									（未形成标准，最好用规范写法）
 								2.JS中的计时器
 									console.time('abc') 传入一个字符串 为计时器的名字
 									console.timeEnd('abc') 结束定时器
@@ -1531,7 +1599,11 @@
 									打印对象时，内容是折叠的，若后续内容改变，当点开的折叠内容，获取的是改变后的内容。
 									何时点开折叠内容 ，获取的就是当时的值
 								4.link标签：
-								真正的意义链入一个文档，通过rel属性 申明链入的文档与当前文档之间的关系。并不是只为了链入CSS文件
+									真正的意义链入一个文档，通过rel属性 申明链入的文档与当前文档之间的关系。并不是只为了链入CSS文件
+								5.js动画与css3动画的区别
+									一个是帧动画（使用定时器每隔一段时间 更改当前元素的状态）不适合
+									一个是补间动画 （过渡动画transition 只要状态发生改变就会产生动画 animate 多个节点来控制动画 性能会更好）
+									在支持H5C3的浏览器尽可能使用css3动画尤其是移动端
 							</p>
 						</li>
 						<li>
