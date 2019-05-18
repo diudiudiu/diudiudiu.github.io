@@ -154,7 +154,7 @@
 								2.1 IE9以下不支持H5标签（大部分CSS3属性，一些H5的API）
 								2.2 IE9以下不认识，把这些标签当作行内元素去看待
 								2.3 语义化标签需要动态创建 document.createElement('header') 同时设置块元素
-							兼容插件 <a href="#html5shiv">html5shiv.js</a>
+							兼容插件 <a class="link" href="#html5shiv">html5shiv.js</a>
 							</p>
 						</li>
 						<li>
@@ -340,7 +340,44 @@
 
 							</p>
 						</li>
-						
+						<li>
+							<h2 id="animation">CSS3动画animation<span class="date"></span></h2>
+							<p class="list">	
+								@keyframes 动画名 {
+									[ [ from | to | 百分比 ]
+									}
+									from等于 0%.
+									to等于 100%.
+								例如
+								@keyframes fontSizeBig {
+									from { font-size:20px;}
+									30% { font-size:22px;}
+									50% { font-size:24px;}
+									70% { font-size:26px;}
+									80% { font-size:28px;}
+									to{ font-size:30px;}
+								}
+								CSS
+								animation:
+								1.animation-timing-function 时间函数动画过渡
+									与transition的事件函数类似
+								2.animation-direction 动画方向
+									normal 正序播放
+									reverse 倒序播放
+									alternate 奇数次正向播放，在偶数次反向播放。交替播放
+									alternate-reverse 在奇数次反向播放，偶数次正向播放。反向交替播放
+								3.animation-delay 动画延迟(s)
+								4.animation-fill-mode 动画播放前后应用元素的样式
+									none 动画执行前后不改变任何样式
+									forwards 保持目标动画最后一帧的样式
+									backwards 保持目标动画第一帧的样式
+									both 动画将会执行 forwards 和 backwards 执行的动作。
+								简写：
+								animation: name duration timing-function delay iteration-count direction fill-mode play-state;
+								animation: fontSizeBig 2s linear 1s infinite forwards;
+
+							</p>
+						</li>
 						<li>
 							<h2>img底部空白间隙<span class="date"></span></h2>
 							<p class="list">	
@@ -363,6 +400,52 @@
 								&emsp;	    float：left;
 									}				
 							</p>
+						</li>
+						<li>
+							<h2>HTML5api<span class="date"></span></h2>
+							<p class="list">	
+								document.querySelector() 获取符合选择器的第一个元素
+								document.querySelectorALL() 获取符合选择器的所有元素
+								基于一个classList的方法 
+								add() 添加一个类
+								remove()  删除一个类
+								toggle()  切换一个类
+								contains()	是否包含一个类名
+								DOM.classList 获取的是这个DOM元素的所有class 
+								DOM.classList.add('blue') 为DOM元素添加一个为blue的类
+								&lt;div data-user="wl" data-user-age="18">&lt/div>
+								自定义属性 data-*
+								命名规则遵循驼峰命名法
+								获取方式 dataset
+								DOM.dataset 获取所有自定义属性 
+								获取单个属性DOM.dataset.user
+								设置单个属性DOM.dataset.user='gg'
+								JQuery的data是操作内存的
+								H5的data是操作DOM的
+								全屏显示
+								在IE9一下不支持
+								由于浏览器兼容问题需要加前缀
+								DOM.requestFullScreen()开启全屏显示
+								DOM.cancelFullScreen()关闭全屏显示
+								webkitRequestFullScreen()//Chrome
+								webkitCancelFullScreen()
+								mozRequestFullScreen()//FireFox
+								mozCancelFullScreen()
+								document.fullScreen 检测当前是否处于全屏 
+								document.webkitFullScreen
+								document.mozFullScreen
+								每一个元素都可全屏
+								页面文档全屏要调用
+								document.documentElement.requestFullScreen()
+								取消全屏跟元素无关
+								直接用document.cancelFullScreen()
+								注意不是body
+								多媒体
+								自定义播放器 
+								&lt;video src="video/diudiudiu.mp4" controls> &lt;/video>
+								controls表示底下控制栏
+								为保证各个一致性 一般自制控制栏
+							</p>                                      
 						</li>
 						<li>
 							<h2>HTML+CSS知识点<span class="date"></span></h2>
@@ -623,12 +706,27 @@
 								:gt(n)
 								//下标小于n的元素
 								:lt(n)
-
-								mouseover经过其子元素也会触发mouseenter不会 都是鼠标进入事件
+								都是鼠标进入事件
+								mouseover经过其子元素也会触发
+								mouseenter不会 
 								mouseleave
 								text=innerText
+								
+								JQuery操作类的方法
+								addClass()  添加一个类名
+								removeClass() 删除一个类名
+								toggleClass() 切换一个类名 有则删除无则增加
+								hasClass() 是否包含一个类名
+								
+								JQuery操作类的方法
+								获取元素自定义属性
+								$('div').data('自定义属性的名称')
+								设置元素自定义属性
+								$('div').data('自定义属性的名称'，'value')
+								
 
 
+								
 								JQuery中的Ajax 含JSONP 但JSONP和Ajax无关
 								$.ajax({
 									url : './time.php',
@@ -1135,9 +1233,11 @@
 							<h2>库&工具<span class="date"></span></h2>
 							<p class="list">								
 								Nprogress加载进度条库
-
+								<a href="https://icons8.com/preloaders/en/free" class="link">preloaders加载动画</a>
 								postman 接口的验证工具
-
+								<a href="http://www.fontawesome.com.cn/faicons/" class="link">font awesome字体图标库</a>
+								<a href="https://www.iconfont.cn/" class="link">Alibaba字体图标</a>
+								<a href="https://www.icomoon.io/" class="link">icomoon字体图标</a>
 								fullpage.js JQuery全屏切换的插件
 
 								<span id="html5shiv">html5shiv.js</span> h5兼容插件 必须引入在头部（在页面结构之前）
@@ -1228,7 +1328,7 @@
 								模版最好写在script标签中
 								例如：
 								&lt;script id="tmpl" type="text/x-art-template">
-									{{each comments}}
+									{{each comments(模版名)}}
 									each 内部 $value 拿到的是当前被遍历的那个元素
 									$index拿到的是下标
 									&lt;tr>
@@ -1239,7 +1339,7 @@
 									{{/each}}
 								&lt;/script>
 								type="text/x-模版名
-								var context={模版设置的名字: 请求的数据}
+								var context={comments(模版设置的名字): 请求的数据}
 								var html=template('tmpl'(script标签的ID),context)
 
 								跨域
@@ -1602,7 +1702,7 @@
 									真正的意义链入一个文档，通过rel属性 申明链入的文档与当前文档之间的关系。并不是只为了链入CSS文件
 								5.js动画与css3动画的区别
 									一个是帧动画（使用定时器每隔一段时间 更改当前元素的状态）不适合
-									一个是补间动画 （过渡动画transition 只要状态发生改变就会产生动画 animate 多个节点来控制动画 性能会更好）
+									一个是补间动画 （过渡动画transition 只要状态发生改变就会产生动画 <a href="#animation" class="link">animation</a> 多个节点来控制动画 性能会更好）
 									在支持H5C3的浏览器尽可能使用css3动画尤其是移动端
 							</p>
 						</li>

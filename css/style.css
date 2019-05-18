@@ -394,6 +394,10 @@ a{
 	line-height: 28px;
 	font-size: 18px;
 }
+.write ul li .list .link{
+	text-decoration: underline;
+	color: cornflowerblue;
+}
 .write ul li .list>em{
 	font-weight: bold;
 }
@@ -414,6 +418,7 @@ code{
 	-moz-column-width: 547px;
 	-o-column-width: 547px;
 	-ms-column-width: 547px;
+	column-width: 547px;
 }
 .wall .out{
 	height:100%;
