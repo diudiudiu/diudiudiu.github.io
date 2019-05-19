@@ -255,6 +255,7 @@
 									grid-template-areas:"header header header header header "
 																			"main main main . maintwo"
 																			"footer footer footer footer footer";
+										网格区域一定要是矩形，可以是1行，1列，多行多列，1个网格单元
 									第一行为header
 									第二行 前三块为main 第四块为空 第五块为maintwo
 									第三行为footer
@@ -263,7 +264,7 @@
 									属性值：
 									1.grid-area-name 使用grid-area属性设置的网格
 									2.‘.’ 点号代表一个空网格单元
-									3.none没有定义网格区域
+									3.none没有定义网	格区域
 
 									简写
 									grid-template：
@@ -292,7 +293,7 @@
 										end 	内容与网格区域右/下侧对齐
 										center内容与网格区域居中对齐
 										stretch 默认值 占据整个区域空间 
-									简写 palce-item：纵向 横向
+									简写 place-items：纵向 横向
 													一个值就都为 这一个
 									---------------------------------------------------
 									justify-content:网格容器内的网格沿着横轴内的对齐方式
@@ -373,8 +374,8 @@
 									backwards 保持目标动画第一帧的样式
 									both 动画将会执行 forwards 和 backwards 执行的动作。
 								简写：
-								animation: name duration timing-function delay iteration-count direction fill-mode play-state;
-								animation: fontSizeBig 2s linear 1s infinite forwards;
+								animation: fontSizeBig 2s linear 1s infinite alternate forwards;
+								延时1s 动画2s 一直重复（infinite）反复运动（alternate） 保持目标动画最后一帧的样式（forwards）
 
 							</p>
 						</li>
@@ -1029,7 +1030,7 @@
 									字符串可以通过索引访问字符串中的某个值但是，是只读。
 									字符串值的改变是指向的堆改变了，不是值发生了改变。
 									实例方法
-									str.charAr(x) 返回指定位置的字符。超出为空
+									str.charAt(x) 返回指定位置的字符。超出为空
 									str.concat(str2,str3...) 与多个字符串进行拼接返回一个新的字符串
 									str.slice(x,y) 返回[x,y)的字符串
 									str.split("x",num) 返回以x切割的num个字符串数组num可省略
@@ -1059,7 +1060,7 @@
 										var key = str[i]; // 每个字母
 										if(obj[key]){
 											//是否存在这个键
-											ojb[key]++;
+											obj[key]++;
 										}else{
 											obj[key]=1;
 										}
