@@ -158,6 +158,30 @@
 							</p>
 						</li>
 						<li>
+							<h2>语义化标签<span class="date"></span></h2>
+							<p class="list">								
+							1.语义化标签的作用：
+								1.1从开发角度考虑是提高代码的可读性可维护性
+								1.2 网站的发布者：SEO
+							2.语义化标签兼容问题
+								2.1 IE9以下不支持H5标签（大部分CSS3属性，一些H5的API）
+								2.2 IE9以下不认识，把这些标签当作行内元素去看待
+								2.3 语义化标签需要动态创建 document.createElement('header') 同时设置块元素
+							兼容插件 <a class="link" href="#html5shiv">html5shiv.js</a>
+							</p>
+						</li>
+						<li>
+							<h2>DOMContentLoaded 与 load事件<span class="date"></span></h2>
+							<p class="list">								
+								DOMContentLoaded:当初始的 HTML 文档被完全加载和解析完成之后，DOMContentLoaded 事件被触发，而无需等待样式表、图像和子框架的完成加载。
+								load:当一个资源及其依赖资源已完成加载时，将触发load事件。
+								首屏时间:	“计算这个网页从空白到出现内容所花费的时间”。
+								这段时间其实就是HTML 文档加载和解析的时间。也就是DOMContentLoaded 事件触发之前所经历的时间。
+								对于首屏时间而言，js放在HTML文档的开头和结尾处效果是一样的而js放在结尾的目的并不是为了减少首屏时间，而是由于js经常需要操纵DOM，放在后面才更能保证找到DOM节点。
+								async、defer与DOMContentLoaded详细关系请看<a href="https://www.cnblogs.com/Bonnie3449/p/8419609.html" class="link">https://www.cnblogs.com/Bonnie3449/p/8419609.html</a>
+							</p>
+						</li>
+						<li>
 							<h2>Grid布局与Flexbox<span class="date"></span></h2>
 							<p class="list">	
 								Flexbox 是一维布局，只能在一条直线上放置内容区块
@@ -1030,6 +1054,7 @@
 									字符串可以通过索引访问字符串中的某个值但是，是只读。
 									字符串值的改变是指向的堆改变了，不是值发生了改变。
 									实例方法
+									str.macth('正则表达式g') 返回匹配的数组
 									str.charAt(x) 返回指定位置的字符。超出为空
 									str.concat(str2,str3...) 与多个字符串进行拼接返回一个新的字符串
 									str.slice(x,y) 返回[x,y)的字符串
@@ -1070,7 +1095,7 @@
 									str.replace("a","b") 将a替换为b 
 									静态方法
 									String.fromCharCode(数字值，可以是多个) 返回ASCII对应的字符串
-
+								字符串反转 没有特定的方法 要先每个字符拆分成数组 再用数组的方式进行反转再组合
 								Array
 									静态方法
 									Array.isArray(x) x是否是数组
@@ -1094,7 +1119,7 @@
 									arr.forEach(callback) 遍历数组
 									arr.indexOf(x) 在arr数组中找x并返回其索引 
 									arr.lastIndexOf(x) 从后往前找
-									arr.join("|") 返回字符串
+									arr.join("|") 数组转字符串 每项中间加|
 									arr.map(callback) 返回arr执行过callback函数的结果数组
 									arr.reverse() 反转
 									arr.sort(function(a,b){
@@ -1178,6 +1203,58 @@
 								\W 匹配一个不可以组成单词的字符，如[\W]匹配"$5.98"中的$，等于[^a-zA-Z0-9_]。
 									
 								
+							</p>
+						</li>
+						<li>
+							<h2>ES6语法<span class="date"></span></h2>
+							<p class="list">
+								常量
+								ES5中的写法
+								Object.defineProperty(window,"PI2",{
+									value:3.1415926,
+									writeable:flase //不能写 （只读）
+								})
+								ES6
+								const PI = 3.1415926
+								---------------------------------------------------
+								作用域
+								ES5中
+								var callbacks=[]
+								for(var i=0;i<=2;i++){
+									callbacks[i]=function(){
+										return i*2;
+									}
+								}
+								console.table{[
+									callbacks[0](), 6
+									callbacks[1](),	6
+									callbacks[2](),	6
+
+								]}
+								ES6中
+								const callbacks2=[]
+								for(let j=0;j<=2;j++){
+									callbacks2[j]=function(){
+										return j*2;
+									}
+								}
+								console.table{[
+									callbacks2[0](), 0
+									callbacks2[1](), 2
+									callbacks2[2](), 4
+
+								]}
+								let表示块级作用域
+								ES5中需要用立即执行函数
+								ES6中每一个{}都表示一个块级作用域
+								函数
+								ES5
+								function a(){
+
+								}
+								ES6
+								(参数)=>{返回值}
+								如果只有一个参数切{}中只有一个返回值语句可写为v=>v+1
 							</p>
 						</li>
 						<li>
