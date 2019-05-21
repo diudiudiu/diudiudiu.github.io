@@ -1216,6 +1216,24 @@
 								})
 								ES6
 								const PI = 3.1415926
+								const声明的时候就需要初始化赋值
+								const 是块级声明
+								const声明的变量不可重复声明
+								const声明会阻止对于变量绑定与变量自身值的修改，这并不会阻止对变量成员的修改(声明对象）。
+								例如：
+								const person={
+									name:"aaa"
+								}
+								person.name="Grey";//不会报错
+								person={
+									name:"Grey"
+								}
+								const阻止对变量绑定的修改，不会阻止对变量成员的修改
+								let表示块级声明
+								let声明不会提升到当前代码块的顶部
+								let声明的变量不可重复声明
+								let和const都不会提升声明
+								使用 let和const 声明的变量，若试图在定义位置之前使用它，都不能避免暂时性死区（TDZ）
 								---------------------------------------------------
 								作用域
 								ES5中
@@ -1244,9 +1262,10 @@
 									callbacks2[2](), 4
 
 								]}
-								let表示块级作用域
-								ES5中需要用立即执行函数
+								
+								ES5中需要用立即执行函数（IIFEs）
 								ES6中每一个{}都表示一个块级作用域
+								---------------------------------------------------
 								函数
 								ES5
 								function a(){
@@ -1255,6 +1274,129 @@
 								ES6
 								(参数)=>{返回值}
 								如果只有一个参数切{}中只有一个返回值语句可写为v=>v+1
+								---------------------------------------------------
+								this指向
+								ES5
+								var factory = function(){
+									this.a='a';
+									this.b='b';
+									this.c={
+										a:'a+',
+										b:function (){
+											return this.a;
+										}
+									}
+								}
+								console.log(new factory().c.b) //a+
+								this指向的是函数调用者
+								ES6
+								var factory = function(){
+									this.a='a';
+									this.b='b';
+									this.c={
+										a:'a+',
+										b:()=> {
+											return this.a;
+										}
+									}
+								}
+								console.log(new factory().c.b) //a+
+								this指向的是定义时this指向
+								---------------------------------------------------
+								默认参数
+								ES5
+								function a(x,y,z){
+									if(x===undefined){
+										checkParameter()
+									}
+									y=y||2;
+									z=z||3'
+								}
+								ES6
+								function a(x=checkParameter(),y=2,z=2){
+
+								}
+								function checkParameter(){
+									throw new Error('cant\'t be empty');
+								}
+								---------------------------------------------------
+								可变参数
+								ES5
+								function f(){
+									var a=Array.prototype.slice.call(arguments);
+									var sum=0;
+									a.forEach(function(item){
+										sum+=item*1;
+									})
+									return sum;
+								}
+								ES6
+								...扩展运算符
+								function f(...a){
+									var sum=0;
+									a.forEach(item=>{
+										sum+=item*1;
+									})
+									return sum;
+								}
+								---------------------------------------------------
+								合并数组
+								ES5
+								var a=['asd',true,7];
+								var b=[1,2].concat(params);
+								ES6
+								利用扩展运算符
+								var a=['asd',true,7];
+								var b=[
+									1,2,...a
+								];
+								---------------------------------------------------
+								数据保护
+								ES3
+								闭包
+								var Person=function(){
+									var data={
+										name:'es3',
+										sex:'male',
+										age:15
+									}
+									this.get=function(key){
+										return data[key];
+									}
+									this.set=function(key){
+										if(key!=='sex'){
+											data[key]=value
+										}
+									}
+								}
+								ES5
+								definePropert属性
+								var Person={
+									name:'es3',
+									age:15
+								}
+								Object.definePropert(Person,'sex',{
+									writeable:false,
+									value:'male'
+								})
+								ES6
+								对象代理
+								let Person={
+									name:'es3',
+									sex:'male',
+									age:15
+								};
+
+								let person= new Proxy(Person,{
+									get(target,key){
+										return target[key]
+									}
+									set(target,key,value){
+										if(key!=='sex'){
+											target[key]=value
+										}
+									}
+								})
 							</p>
 						</li>
 						<li>
