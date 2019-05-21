@@ -158,19 +158,6 @@
 							</p>
 						</li>
 						<li>
-							<h2>语义化标签<span class="date"></span></h2>
-							<p class="list">								
-							1.语义化标签的作用：
-								1.1从开发角度考虑是提高代码的可读性可维护性
-								1.2 网站的发布者：SEO
-							2.语义化标签兼容问题
-								2.1 IE9以下不支持H5标签（大部分CSS3属性，一些H5的API）
-								2.2 IE9以下不认识，把这些标签当作行内元素去看待
-								2.3 语义化标签需要动态创建 document.createElement('header') 同时设置块元素
-							兼容插件 <a class="link" href="#html5shiv">html5shiv.js</a>
-							</p>
-						</li>
-						<li>
 							<h2>DOMContentLoaded 与 load事件<span class="date"></span></h2>
 							<p class="list">								
 								DOMContentLoaded:当初始的 HTML 文档被完全加载和解析完成之后，DOMContentLoaded 事件被触发，而无需等待样式表、图像和子框架的完成加载。
@@ -470,6 +457,86 @@
 								&lt;video src="video/diudiudiu.mp4" controls> &lt;/video>
 								controls表示底下控制栏
 								为保证各个一致性 一般自制控制栏
+								---------------------------------------------------
+								历史相关api
+								history
+								history.back()	去上一条了历史
+								history.forword()	去下一条历史
+								history.go() 相对当前 跳多少条记录 正数 抢走
+								H5新增
+								history.pushState(数据，标题，历史记录的地址) 加一条历史记录
+								history.replaeState(数据，标题，历史记录的地址) 替换一条历史记录
+								window.onpopstate 监听历史切换事件
+								实现网页中常见的网页开发模式 
+								单页面应用程序：在一个页面上实现大部分
+								---------------------------------------------------
+								本地存储
+								以前用cookies 大小4k
+								sessionStorage 5M
+								localStorage 20M
+								只能存储字符串，可以将对象JSON.stringify()编码后存储
+								window.sessionStorage  用的比较少 一般存放在服务端
+								生命周期为关闭浏览器窗口
+								在同一个窗口页面下数据可以共享
+								window.localStorage 相当于在本地存放一个文件
+								永久有效 除非手动删除（服务器方式访问然后清除缓存）
+								多窗口页面共享
+								方法名字
+								setItem(key,value)设置存储内容
+								getItem(key) 读取存储内容
+								removeItem(key) 删除键值为key的存储内容
+								clear()清空所有存储内容
+								---------------------------------------------------
+								地理位置 基于国外的定位
+								获取当前地理信息
+								navigator.geolocation.getCurrentPosition(function(postion){
+									定位成功函数
+									postion定位信息对象
+									postion 属性coords 坐标对象
+									coords 有经纬度 海拔....
+									latitude纬度 longitude精度
+								},function(PositionE rror){
+									定位失败函数
+									定位失败信息
+								})
+								重复获取当前地理信息
+								navigator.geolocation.watchPosition(function(postion){
+									定位成功函数
+									postion定位信息对象
+									postion 属性coords 坐标对象
+									coords 有经纬度 海拔....
+									latitude纬度 longitude精度
+								},function(PositionE rror){
+									定位失败函数
+									定位失败信息
+								})
+								实际开发中调用第三方API来实现地理信息
+								---------------------------------------------------
+								离线缓存
+								在html添加属性manifest="文件名.appcache"
+								manifest文件格式
+								顶行写CACHE MANIFEST
+								CACHE:换行 指定我们需要缓存的静态资源 如css，image,js
+								NETWORK:换行 指定需要在线访问的资源
+								FALLBACK: 换行 当被缓存的文件找不到时的备用资源
+								---------------------------------------------------
+								拖拽 drag事件
+								标签上加 draggable="true"就可让该元素被拖拽
+								---------------------------------------------------
+								文件读取
+								var file=document.querySelector('.file');
+								file.onchange=function(){
+									var reader = new FileReader();
+									reader.readAsRataURL(this.files[0]);
+									reader.onload=function(){
+										document.querySelector('#img').src=this.result;
+									}
+								}
+								---------------------------------------------------
+								网络状态
+								window.navigator.online 可以返回当前网络状态
+								online 在线
+								offline 离线
 							</p>                                      
 						</li>
 						<li>
@@ -505,7 +572,7 @@
 								&emsp;	&emsp;	controls 控制
 								&emsp;	&emsp;	loop 循环播放
 								&emsp;	video元素支持三种视频格式 OGG MPEG 4 WebM
-
+								mark 标签突出显示文本
 
 								注意！！！p h1-h6标签内不放块元素。
 								行内块与行内块之间存在缝隙，浮动可解决。
@@ -691,7 +758,7 @@
 								window.location.hash 地址栏上 锚链接#号后面的
 								window.location.host 主机名及端口号
 								window.location.hostname 主机名
-								window.location.pathname 文件路径 相对路径端口
+								window.location.pathname 文件路径 相对路径端口 没有域名
 								window.location.port 端口号
 								window.location.protocol 协议
 								window.location.search 搜索的内容 ？后 的内容
@@ -712,6 +779,7 @@
 								find() 		后代
 								siblings() 兄弟节点 
 								next()下一个兄弟对象
+								contents() 获取匹配元素中子节点 包括文本，注释节点
 								parent()父级
 								index() 返回当前元素在所有兄弟元素中的索引
 								eq(n)=:eq(n)//第n个元素
@@ -1463,9 +1531,9 @@
 								<span id="html5shiv">html5shiv.js</span> h5兼容插件 必须引入在头部（在页面结构之前）
 								需要优化处理：条件注释
 								固定语法 lt小于 gt 大于lte小于等于 gte大于等于
-								&lt;!--[if lt IE9>
+								&lt;!--[if lt IE9]>
 								&lt;script>&lt;/script>
-								&lt;[endif]-->>
+								&lt;![endif]-->>
 
 								stellar.js JQuery视察滚动效果插件(data-stellar-background-ratio="0.5" 按正常滚动速率的0.5倍滚动)
 							</p>
@@ -1915,7 +1983,7 @@
 								2.JS中的计时器
 									console.time('abc') 传入一个字符串 为计时器的名字
 									console.timeEnd('abc') 结束定时器
-								3.浏览器console
+								3.浏览器console.log
 									打印对象时，内容是折叠的，若后续内容改变，当点开的折叠内容，获取的是改变后的内容。
 									何时点开折叠内容 ，获取的就是当时的值
 								4.link标签：
@@ -1924,6 +1992,15 @@
 									一个是帧动画（使用定时器每隔一段时间 更改当前元素的状态）不适合
 									一个是补间动画 （过渡动画transition 只要状态发生改变就会产生动画 <a href="#animation" class="link">animation</a> 多个节点来控制动画 性能会更好）
 									在支持H5C3的浏览器尽可能使用css3动画尤其是移动端
+							</p>
+						</li>
+						<li>
+							<h2>Node.js<span class="date"></span></h2>
+							<p class="list">								
+								require方法有两个作用
+								1.加载文件模块并执行里面的代码
+								2.拿到被夹在文件模块导出的接口对象
+								在每个文件模块中都提供了一个对象 exports 默认是一个空对象
 							</p>
 						</li>
 						<li>
