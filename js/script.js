@@ -1,145 +1,145 @@
-window.onload=function(){
-
+window.onload = function () {
+	alert('blog正在重构，此blog不更新，新blog文章请访问 https://github.com/diudiudiu/blog_new 仓库')
 
 	/* 界面加载 */
-	var loading=document.getElementById('loading');
-	setTimeout(function(){
-		if (document.readyState=="complete") {
-			loading.style.display='none';
+	var loading = document.getElementById('loading');
+	setTimeout(function () {
+		if (document.readyState == "complete") {
+			loading.style.display = 'none';
 		}
-	},500);
-	
-	
+	}, 500);
+
+
 	/*搜索*/
-	var search=document.getElementById('search');
-	var so=document.getElementById('so');
-	search.onclick=function(){
-		if (so.value!='') {
-			window.location.href="so/index.html"; 
+	var search = document.getElementById('search');
+	var so = document.getElementById('so');
+	search.onclick = function () {
+		if (so.value != '') {
+			window.location.href = "so/index.html";
 		}
 	}
 
 
 	/* 留言 */
-	var send=document.getElementById('send');
-	var num=2;
-	send.onclick=function(){
-		var now=new Date();var y=now.getFullYear();
-		var m=now.getMonth()+1;var d=now.getDate();var h=now.getHours();
-		var min=now.getMinutes();
-		function zero(i){
-			if(i<10){
-				i='0'+qi;
+	var send = document.getElementById('send');
+	var num = 2;
+	send.onclick = function () {
+		var now = new Date(); var y = now.getFullYear();
+		var m = now.getMonth() + 1; var d = now.getDate(); var h = now.getHours();
+		var min = now.getMinutes();
+		function zero(i) {
+			if (i < 10) {
+				i = '0' + qi;
 			}
 			return i;
 		}
-		min=zero(min);
-		var time=y+"."+m+"."+d+" "+h+':'+min;
-		var information=document.getElementById('information');
-		var input=information.getElementsByTagName('input');
-		var text=document.getElementById('text').value;
-		var name=input[0].value;
-		var Email=input[1].value;
-		var git=input[2].value;
+		min = zero(min);
+		var time = y + "." + m + "." + d + " " + h + ':' + min;
+		var information = document.getElementById('information');
+		var input = information.getElementsByTagName('input');
+		var text = document.getElementById('text').value;
+		var name = input[0].value;
+		var Email = input[1].value;
+		var git = input[2].value;
 		var oParent = document.getElementById('boardul');// 父级对象
-	    var oPin=document.createElement('li'); //添加 元素节点
-	    oParent.appendChild(oPin);              //添加 子节点
-	    var oinfo=document.createElement('div');
-	    oinfo.className='info';
-	    if (name=='') {
-	    	name="一位不愿透露姓名的游客";
-	    }
-	    oinfo.innerHTML="<i>"+name+"</i><a href='#'>"+Email+"</a><a href=''>"+git+"</a><span class='floor'>"+num+"L</span>";
-	    num++;
-	    oPin.appendChild(oinfo);
-	    var hr=document.createElement('hr');
-	    oPin.appendChild(hr);
-	    var omessage=document.createElement('div');
-	    omessage.className='message';
-	    omessage.innerHTML="<p>"+text+"</p><span class='time'>"+time+"</span>"
-	    oPin.appendChild(omessage);
+		var oPin = document.createElement('li'); //添加 元素节点
+		oParent.appendChild(oPin);              //添加 子节点
+		var oinfo = document.createElement('div');
+		oinfo.className = 'info';
+		if (name == '') {
+			name = "一位不愿透露姓名的游客";
+		}
+		oinfo.innerHTML = "<i>" + name + "</i><a href='#'>" + Email + "</a><a href=''>" + git + "</a><span class='floor'>" + num + "L</span>";
+		num++;
+		oPin.appendChild(oinfo);
+		var hr = document.createElement('hr');
+		oPin.appendChild(hr);
+		var omessage = document.createElement('div');
+		omessage.className = 'message';
+		omessage.innerHTML = "<p>" + text + "</p><span class='time'>" + time + "</span>"
+		oPin.appendChild(omessage);
 	}
-	
+
 	/* 左侧最小化 */
 
 	var timer;
-	var leftdiv=document.getElementById("left");
-	var goleft=document.getElementById("goleft");
-	var rightdiv=document.getElementById("right");
+	var leftdiv = document.getElementById("left");
+	var goleft = document.getElementById("goleft");
+	var rightdiv = document.getElementById("right");
 	// goleft.onclick=function(){
-		// leftdiv.style.position='absolute';		
-		// // rightdiv.style.position='absolute';		
-		// timer=setInterval(function(){	
-		// 	if (leftdiv.offsetLeft<=-300) {
-		// 		leftdiv.style.left=-300+'px';
-		// 		rightdiv.style.marginLeft=0+'px';
-		// 		clearInterval(timer);
-		// 	}else{
-		// 		leftdiv.style.left=(leftdiv.offsetLeft-3)+'px';
-		// 		rightdiv.style.marginLeft=(rightdiv.style.marginLeft-3)+'px';
-		// 	}
-		// },10)
+	// leftdiv.style.position='absolute';		
+	// // rightdiv.style.position='absolute';		
+	// timer=setInterval(function(){	
+	// 	if (leftdiv.offsetLeft<=-300) {
+	// 		leftdiv.style.left=-300+'px';
+	// 		rightdiv.style.marginLeft=0+'px';
+	// 		clearInterval(timer);
+	// 	}else{
+	// 		leftdiv.style.left=(leftdiv.offsetLeft-3)+'px';
+	// 		rightdiv.style.marginLeft=(rightdiv.style.marginLeft-3)+'px';
+	// 	}
+	// },10)
 	// }
-	var box=document.getElementById("box");
+	var box = document.getElementById("box");
 	// alert(box.style.marginLeft==='0px');		
-	goleft.onclick=function(){
+	goleft.onclick = function () {
 		// rightdiv.style.position='absolute';		
-		timer=setInterval(function(){	
-			if (box.style.marginLeft<=-300) {
-				box.style.marginLeft=-300+'px';
+		timer = setInterval(function () {
+			if (box.style.marginLeft <= -300) {
+				box.style.marginLeft = -300 + 'px';
 				clearInterval(timer);
-			}else{
-				box.style.marginLeft=(box.style.marginLeft-3)+'px';
+			} else {
+				box.style.marginLeft = (box.style.marginLeft - 3) + 'px';
 			}
-		},10)
+		}, 10)
 	}
 
 
 
 	/*文章自动换行*/
 
-	var list=getElementsByClassName('*','list')
+	var list = getElementsByClassName('*', 'list')
 	for (var i = 0; i < list.length; i++) {
-		list[i].innerHTML=ReplaceSeperator(list[i].innerHTML)
+		list[i].innerHTML = ReplaceSeperator(list[i].innerHTML)
 	}
 	/* br函数 */
 	function ReplaceSeperator(mobiles) {
-	    var i;
-	    var result = "<span>";
-	    var c;
-	    for (i = 0; i < mobiles.length; i++) {
-	        c = mobiles.substr(i, 1);
-	        if (c == "\n"||c == "\r"){
-	            result = result + "</span> <span>";
-	        }
-	        else{
-	        	result = result + c;
-	        }
+		var i;
+		var result = "<span>";
+		var c;
+		for (i = 0; i < mobiles.length; i++) {
+			c = mobiles.substr(i, 1);
+			if (c == "\n" || c == "\r") {
+				result = result + "</span> <span>";
+			}
+			else {
+				result = result + c;
+			}
 
-	    }
-	    return result.substring(0,result.length-6);;
+		}
+		return result.substring(0, result.length - 6);;
 	}
 
 	/* getClassName */
-	function getElementsByClassName(tagName,className) {
-        var tag = document.getElementsByTagName(tagName);
-        var tagAll = [];
-        for(var i = 0 ; i<tag.length ; i++){
-            if(tag[i].className.indexOf(className) != -1){
-                tagAll[tagAll.length] = tag[i];
-            }
-        }
- 
-        return tagAll;
- 
-    }
+	function getElementsByClassName(tagName, className) {
+		var tag = document.getElementsByTagName(tagName);
+		var tagAll = [];
+		for (var i = 0; i < tag.length; i++) {
+			if (tag[i].className.indexOf(className) != -1) {
+				tagAll[tagAll.length] = tag[i];
+			}
+		}
 
-    /* 多背景色 左对齐*/
+		return tagAll;
 
-   function marginLeft(tag,oth){
-   		tagmarginleft=tag.style.marginLeft;
-   		oth.style.marginLeft=tagmarginleft+'px';
-   }
+	}
+
+	/* 多背景色 左对齐*/
+
+	function marginLeft(tag, oth) {
+		tagmarginleft = tag.style.marginLeft;
+		oth.style.marginLeft = tagmarginleft + 'px';
+	}
 	// /*二维码*/
 	// var qq=document.getElementById('qq');
 	// var QQ=document.getElementById('QQ');
